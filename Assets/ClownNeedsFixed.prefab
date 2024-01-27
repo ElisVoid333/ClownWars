@@ -3137,7 +3137,7 @@ GameObject:
   - component: {fileID: 1913945084803529501}
   m_Layer: 0
   m_Name: spine
-  m_TagString: Clown
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4248,7 +4248,7 @@ GameObject:
   - component: {fileID: 3214324829253805061}
   m_Layer: 0
   m_Name: ClownNeedsFixed
-  m_TagString: Untagged
+  m_TagString: Clown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

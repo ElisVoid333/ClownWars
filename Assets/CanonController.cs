@@ -21,7 +21,9 @@ public class CanonController : MonoBehaviour
     /*-- Firing Canon Variables --*/
     public GameObject frontOfBarrel;                                    //Front Of Barrel Object
 
-    private List <GameObject> ammo = new List<GameObject>();            //List of all ammo to shoot out of cannon
+    private List <GameObject> ammo = new List<GameObject>();            //List of all ammo to shoot out of cannon out of GameObject (Takes GameObject)
+    //private int[] ammo;                                                 //List of all ammo to shoot out of cannon out of int (counter)
+
     private bool addingThrustingPower;                                  //Adds thrust force as player holds down button
     public float thrustForce;                                           //Force of objects flung out of cannon
     public float maxThrustForce;                                        //Maximum thrust to flung objects out of cannon
@@ -131,8 +133,8 @@ public class CanonController : MonoBehaviour
 
         for (int i = 0; i < ammo.Count; i++)
         {
-            //ammo[i].SetActive(true);
-            Instantiate(clown, frontOfBarrel.transform.position, Quaternion.identity);
+            ammo[i].SetActive(true);
+            //Instantiate(clown, frontOfBarrel.transform.position, Quaternion.identity);
 
             ammo[i].gameObject.transform.position = frontOfBarrel.transform.position;
         }
@@ -171,8 +173,7 @@ public class CanonController : MonoBehaviour
         {
             Debug.Log("Clown has entered the cannon");
             ammo.Add(other.gameObject);
-            //other.gameObject.SetActive(false);
-            Destroy(other);
+            other.gameObject.SetActive(false);
         }
     }
 }

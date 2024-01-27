@@ -174,6 +174,7 @@ public class CanonController : MonoBehaviour
             Debug.Log("Clown has entered the cannon");
             ammo.Add(other.gameObject);
             other.gameObject.SetActive(false);
+            Destroy(other.gameObject.transform.root);
         }
     }
 }

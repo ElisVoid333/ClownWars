@@ -150,6 +150,7 @@ MonoBehaviour:
   killTime: 1.5
   isHit: 0
   couldExplode: 0
+  score: 100
   groundTimer: 0
 --- !u!65 &8734684119028674052
 BoxCollider:

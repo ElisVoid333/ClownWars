@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Clown
+  - Castle
+  - PlayArea
+  - Ground
+  - Explosion
+  - Load
   layers:
   - Default
   - TransparentFX

@@ -172,4 +172,5 @@ MonoBehaviour:
   killTime: 1.5
   isHit: 0
   couldExplode: 0
+  score: 300
   groundTimer: 0

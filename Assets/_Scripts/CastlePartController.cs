@@ -21,6 +21,7 @@ public class CastlePartController : MonoBehaviour
     public float killTime = 3.0f;
     public bool isHit = false;
     public bool couldExplode = false;
+    public int score = 0;
 
     private Rigidbody body;
     public float groundTimer = 0.0f;
@@ -101,6 +102,8 @@ public class CastlePartController : MonoBehaviour
 
     private void DestroyPiece()
     {
+        // Spawn score effect
+        GameController.instance.incremeantScore(score);
         Destroy(this.gameObject);
     }
 }

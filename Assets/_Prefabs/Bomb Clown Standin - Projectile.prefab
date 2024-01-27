@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 5156073081816842887}
   - component: {fileID: -961070529824486240}
   m_Layer: 0
-  m_Name: Exploding Clown Standin
+  m_Name: Bomb Clown Standin - Projectile
   m_TagString: Clown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -393,7 +393,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 597b9c6d80ffbd347afab173ed496241, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

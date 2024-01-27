@@ -131,7 +131,8 @@ public class CanonController : MonoBehaviour
 
         for (int i = 0; i < ammo.Count; i++)
         {
-            ammo[i].SetActive(true);
+            //ammo[i].SetActive(true);
+            Instantiate(clown, frontOfBarrel.transform.position, Quaternion.identity);
 
             ammo[i].gameObject.transform.position = frontOfBarrel.transform.position;
         }
@@ -170,7 +171,8 @@ public class CanonController : MonoBehaviour
         {
             Debug.Log("Clown has entered the cannon");
             ammo.Add(other.gameObject);
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
+            Destroy(other);
         }
     }
 }

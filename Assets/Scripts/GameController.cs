@@ -77,4 +77,9 @@ public class GameController : MonoBehaviour
             nextBomb++;
         }
     }
+
+    public void SpawnNormalClown()
+    {
+        normalSpawner.GetComponent<ClownRackController>().SpawnClown();
+    }
 }

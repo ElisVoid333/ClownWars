@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class CanonController : MonoBehaviour
 {
-    /* Rotation of Canon Variables */
-    
+    /*-- Rotation of Canon Variables --*/
     public float rotationSpeed;         //How fast barrel will rotate along z-axis
 
     public bool rotateCanonUpwards;     //Allow rotation upwards
     public bool rotateCanonDownwards;   //Allow rotation downwards
 
-    private float maxRotation = 43.5f;    //Restrict rotation upwards     (Max Value barrel may rotate)
-    private float minRotation = 300f;    //Restrict rotation downwards    (Min Value barrel may rotate)
+    private float maxRotation = 43.5f;  //Restrict rotation upwards     (Max Value barrel may rotate)
+    private float minRotation = 300f;   //Restrict rotation downwards    (Min Value barrel may rotate)
+
+    /*-- Firing Canon Variables --*/
+    private GameObject[] ammo;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +47,7 @@ public class CanonController : MonoBehaviour
         }
     }
 
-    /* CANON BUTTON CONTROLS */
+    /*-- CANON BUTTON CONTROLS --*/
     //Allow to rotate Canon Upwards
     public void rotateUp(bool _rotateUp)
     {
@@ -58,5 +60,19 @@ public class CanonController : MonoBehaviour
         Debug.Log("Rotate Downwards");
         rotateCanonDownwards = _rotateDown;
     }
+    //Fires Cannon
+    public void fire()
+    {
+        Debug.Log("FIIIIIRRREEE!");
 
+    }
+
+    /*-- Canon Functions --*/
+    //Grabs all objects in scene with specific tag
+    public void grabAmmo()
+    {
+        ammo = GameObject.FindGameObjectsWithTag("Clown");
+    }
+
+    //Following for testing
 }

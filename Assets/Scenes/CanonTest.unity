@@ -1318,7 +1318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42d3d8a6387696469f6fff2100adc07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeOutput: {fileID: 0}
+  timeOutput: {fileID: 1264755799}
   maxTime: 0
 --- !u!1001 &1082831250
 PrefabInstance:
@@ -1736,7 +1736,7 @@ GameObject:
   - component: {fileID: 1624239788}
   - component: {fileID: 1624239787}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas (Game Controller)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     /*-- Timer Variables --*/
-    public Text timeOutput;
+    public TMP_Text timeOutput;
     public float maxTime;
     private float timer;
 
@@ -20,10 +20,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer = Time.deltaTime;
+        timer += Time.deltaTime;
 
         float timeLeft = maxTime - timer;
 
-        timeOutput.text = "Timer: " + timeLeft;
+        timeOutput.text = "Timer: " + (int)timeLeft;
     }
 }

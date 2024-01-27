@@ -480,7 +480,7 @@ MonoBehaviour:
   exploding: 1
   launched: 0
   killVelocity: 0.1
-  killTime: 3
+  killTime: 1.5
   explosionForce: 250
   explosionRadius: 5
   upwardsModifier: 1.5

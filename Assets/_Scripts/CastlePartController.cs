@@ -1,3 +1,15 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//   Project - CLOWN WARS
+//   Filename - CastlePartControler.cs
+//   Author - Eric DeMarbre
+//   Date - January 27 2024
+//
+//   Description - Controls the behaviour of the castle parts for Clown Wars, particularly physics  
+//   and collision behaviour. 
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,28 +18,24 @@ using UnityEngine.InputSystem.HID;
 
 public class CastlePartController : MonoBehaviour
 {
-    private Rigidbody body;
+    public float killTime = 3.0f;
     public bool isHit = false;
     public bool couldExplode = false;
-    public float killTime = 3.0f;
 
-    private float groundTimer = 0.0f;
+    private Rigidbody body;
+    public float groundTimer = 0.0f;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody>();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (GetComponent<Rigidbody>().IsSleeping())
+        {
+            GetComponent<Rigidbody>().WakeUp();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -51,7 +59,7 @@ public class CastlePartController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Explosiomn")
+        if (other.tag == "Explosion")
         {
             couldExplode = false;
         }

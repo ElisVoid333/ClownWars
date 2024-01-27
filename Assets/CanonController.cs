@@ -17,7 +17,7 @@ public class CanonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rotationSpeed = 0.5f;
+        rotationSpeed = 0.05f;
     }
 
     // Update is called once per frame

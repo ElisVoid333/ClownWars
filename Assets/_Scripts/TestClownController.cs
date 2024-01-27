@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 public struct Ammo
 {
+    public string ClownType { get; }
+    public int ClownAudioTag { get; }
+
     public Ammo(string name, int audioTag)
     {
-        string clownType = name;
-        int clownAudioTag = audioTag;
+        ClownType = name;
+        ClownAudioTag = audioTag;
     }
 }
 
@@ -16,7 +20,10 @@ public class TestClownController : MonoBehaviour
 {
     public static TestClownController instance = null;
 
-    public GameObject ClownPrefab;
+    public GameObject NormalClownPrefab;
+    public GameObject RocketClownPrefab;
+    public GameObject BombClownPrefab;
+
     public GameObject LaunchTarget;
     public float LaunchSpeed;
 
@@ -41,7 +48,7 @@ public class TestClownController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && spaceUp && readyToLaunch)
+        if(Input.GetKeyDown(KeyCode.Space) && spaceUp)
         {
             spaceUp = false;
             LaunchClown();
@@ -50,26 +57,37 @@ public class TestClownController : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Space) && !spaceUp) spaceUp = true;   
     }
 
-    public void SpawnClown()
-    {
-        StartCoroutine(ResetCastle());
-
-        Ammo nextClown = ammoLoaded[0];
-
-
-        CurrentClown = Instantiate(ClownPrefab, this.transform);
-        readyToLaunch = true;
-    }
-
     private void LaunchClown()
     {
-        Vector3 direction = LaunchTarget.transform.position - CurrentClown.transform.position;
-        direction = Vector3.Normalize(direction);
-        direction *= LaunchSpeed;
+        if (ammoLoaded.Count > 0)
+        {
+            Ammo nextClown = ammoLoaded[0];
 
-        CurrentClown.GetComponent<Rigidbody>().AddForce(direction, ForceMode.Impulse);
-        CurrentClown.GetComponent<ClownStandinController>().launched = true;
-        readyToLaunch = false;
+            switch (nextClown.ClownType)
+            {
+                case "Rocket Clown":
+                    CurrentClown = Instantiate(RocketClownPrefab, this.transform);
+                    break;
+                case "Bomb Clown":
+                    CurrentClown = Instantiate(BombClownPrefab, this.transform);
+                    break;
+                case "Normal Clown":
+                default:
+                    CurrentClown = Instantiate(NormalClownPrefab, this.transform);
+                    break;
+            }
+
+            ammoLoaded.RemoveAt(0);
+
+            Vector3 direction = LaunchTarget.transform.position - CurrentClown.transform.position;
+            direction = Vector3.Normalize(direction);
+            direction *= LaunchSpeed;
+
+            CurrentClown.GetComponent<Rigidbody>().AddForce(direction, ForceMode.Impulse);
+            CurrentClown.GetComponent<ClownStandinController>().launched = true;
+
+            StartCoroutine(ResetCastle());
+        }
     }
 
     IEnumerator ResetCastle()

@@ -57,7 +57,7 @@ public class ClownStandinController : MonoBehaviour
     {
         if (other.tag == "PlayArea")
         {
-            TestClownController.instance.SpawnClown();
+            //TestClownController.instance.SpawnClown();
             Destroy(this.gameObject);
         }
     }
@@ -65,7 +65,7 @@ public class ClownStandinController : MonoBehaviour
     IEnumerator KillClown()
     {
         yield return new WaitForSeconds(killTime);
-        TestClownController.instance.SpawnClown();
+        //TestClownController.instance.SpawnClown();
         Destroy(this.gameObject);
     }
 

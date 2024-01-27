@@ -5,12 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Clown
-  - TheClownHierachy
+  - Castle
+  - PlayArea
+  - Ground
+  - Explosion
+  - Load
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Teleport
   - Water
   - UI
   - 

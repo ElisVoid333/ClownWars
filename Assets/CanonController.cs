@@ -26,7 +26,7 @@ public class CanonController : MonoBehaviour
     void Start()
     {
         rotationSpeed = 0.05f;
-        thrustForce = 1000f;
+        thrustForce = 10f;
     }
 
 
@@ -104,7 +104,7 @@ public class CanonController : MonoBehaviour
 
             Vector3 angledShot = shootingAngle();
             
-            bullet.AddForce(-frontOfBarrel.transform.right * thrustForce, ForceMode.Impulse);
+            bullet.AddRelativeForce(frontOfBarrel.transform.position * thrustForce, ForceMode.Impulse);
         }
     }
     //Calculate vector to shoot objects from cannon
@@ -112,9 +112,10 @@ public class CanonController : MonoBehaviour
     {
         Vector3 shootingAngle = Vector3.zero;
 
-        shootingAngle = new Vector3(transform.forward.z , transform.eulerAngles.z, 0f);
-        Debug.Log(shootingAngle);
+        shootingAngle = -frontOfBarrel.transform.right;
+        shootingAngle.y = Mathf.Abs(transform.rotation.y);
 
+        Debug.Log(shootingAngle);
         return shootingAngle;
     }
 

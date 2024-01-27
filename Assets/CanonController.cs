@@ -166,7 +166,7 @@ public class CanonController : MonoBehaviour
     /*-- Trigger Events --*/
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Clown")
+        if (other.gameObject.tag == "Clown")
         {
             Debug.Log("Clown has entered the cannon");
             ammo.Add(other.gameObject);

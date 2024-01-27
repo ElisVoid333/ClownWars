@@ -189,10 +189,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9563eef8e0c8e7446b7c5b33f5958540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clown: {fileID: 5274668357001201972, guid: cc0bc5e2007399641a523ecfd5b4f2a8, type: 3}
+  clown: {fileID: 8776237925065396630, guid: 8ded4837203a3074cbdc2fdc9ce31163, type: 3}
   rotationSpeed: 0
   frontOfBarrel: {fileID: 561790876653998794}
   thrustForce: 0
+  maxThrustForce: 0
+  minThrustForce: 0
 --- !u!65 &1478611889181988853
 BoxCollider:
   m_ObjectHideFlags: 0

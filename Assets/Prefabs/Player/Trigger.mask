@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Trigger
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: base
+    m_Weight: 0
+  - m_Path: base/index1
+    m_Weight: 1
+  - m_Path: base/index1/index2
+    m_Weight: 1
+  - m_Path: base/index1/index2/index3
+    m_Weight: 1
+  - m_Path: base/index1/index2/index3/index4
+    m_Weight: 1
+  - m_Path: base/middle1
+    m_Weight: 0
+  - m_Path: base/middle1/middle2
+    m_Weight: 0
+  - m_Path: base/middle1/middle2/middle3
+    m_Weight: 0
+  - m_Path: base/middle1/middle2/middle3/middle4
+    m_Weight: 0
+  - m_Path: base/pinky1
+    m_Weight: 0
+  - m_Path: base/pinky1/pinky2
+    m_Weight: 0
+  - m_Path: base/pinky1/pinky2/pinky3
+    m_Weight: 0
+  - m_Path: base/pinky1/pinky2/pinky3/pinky4
+    m_Weight: 0
+  - m_Path: base/ring1
+    m_Weight: 0
+  - m_Path: base/ring1/ring2
+    m_Weight: 0
+  - m_Path: base/ring1/ring2/ring3
+    m_Weight: 0
+  - m_Path: base/ring1/ring2/ring3/ring4
+    m_Weight: 0
+  - m_Path: base/thumb1
+    m_Weight: 1
+  - m_Path: base/thumb1/thumb2
+    m_Weight: 1
+  - m_Path: base/thumb1/thumb2/thumb3
+    m_Weight: 1
+  - m_Path: base/thumb1/thumb2/thumb3/thumb4
+    m_Weight: 1
+  - m_Path: ClownHand:Hand.003
+    m_Weight: 0

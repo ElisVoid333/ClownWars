@@ -74,6 +74,13 @@ public class CanonController : MonoBehaviour
         {
             thrustForce = 0f;
         }
+
+        /*-- For Testing --*/
+        //Spawns Ball on top of collider
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            
+        }
     }
 
 
@@ -143,5 +150,12 @@ public class CanonController : MonoBehaviour
         return shootingAngle;
     }
 
-    //Following for testing
+    /*-- Trigger Events --*/
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Clown")
+        {
+            Debug.Log("Clown has entered the cannon");
+        }
+    }
 }

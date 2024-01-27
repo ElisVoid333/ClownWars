@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ClownController : MonoBehaviour
 {
-    private SphereCollider collider; 
+    private SphereCollider selfCollider; 
 
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<SphereCollider>();
+        selfCollider = GetComponent<SphereCollider>();
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class ClownController : MonoBehaviour
         //Ignores collisions with other clowns
         if (collision.gameObject.tag == "Clown")
         {
-            Physics.IgnoreCollision(collision.collider, collider);
+            Physics.IgnoreCollision(collision.collider, selfCollider);
         }
     }
 }

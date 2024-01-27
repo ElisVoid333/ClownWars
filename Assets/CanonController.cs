@@ -13,39 +13,51 @@ public class CanonController : MonoBehaviour
     private float maxRotation = 43.5f;  //Restrict rotation upwards     (Max Value barrel may rotate)
     private float minRotation = 300f;   //Restrict rotation downwards    (Min Value barrel may rotate)
 
+
     /*-- Firing Canon Variables --*/
-    private GameObject[] ammo;
+    public GameObject frontOfBarrel;    //Front Of Barrel Object
+
+    private GameObject[] ammo;          //List of all ammo to shoot out of cannon
+    public float thrustForce;           //Force of objects flung out of cannon
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         rotationSpeed = 0.05f;
+        thrustForce = 1000f;
     }
+
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(transform.eulerAngles.z);
 
-        Debug.Log(transform.eulerAngles.z);
-
+        // Rotates Canon Upwards if button held down
         if (rotateCanonUpwards)
         {
             transform.Rotate(0f, 0.0f, rotationSpeed, Space.World);
         }
+        // Rotates Canon Downwards if button held down
         if (rotateCanonDownwards)
         {
             transform.Rotate(0f, 0.0f, -rotationSpeed, Space.World);
         }
 
+        //Restricts Rotation Upward
         if (transform.eulerAngles.z >= maxRotation && transform.eulerAngles.z < 100f)
         {
             transform.eulerAngles = new Vector3(0f, 0f, maxRotation);
         }
+        //Restricts Rotation Downward
         if (transform.eulerAngles.z <= minRotation && transform.eulerAngles.z > 100f)
         {
             transform.eulerAngles = new Vector3(0f, 0f, minRotation);
         }
     }
+
 
     /*-- CANON BUTTON CONTROLS --*/
     //Allow to rotate Canon Upwards
@@ -64,14 +76,46 @@ public class CanonController : MonoBehaviour
     public void fire()
     {
         Debug.Log("FIIIIIRRREEE!");
-
+        grabAmmo();
+        shoot();
     }
+
 
     /*-- Canon Functions --*/
     //Grabs all objects in scene with specific tag
-    public void grabAmmo()
+    private void grabAmmo()
     {
         ammo = GameObject.FindGameObjectsWithTag("Clown");
+
+        for (int i = 0; i < ammo.Length; i++)
+        {
+            ammo[i].gameObject.transform.position = frontOfBarrel.transform.position;
+        }
+    }
+    //Shoots all objects in GameObject[] ammo
+    private void shoot()
+    {
+        ammo = GameObject.FindGameObjectsWithTag("Clown");
+
+        for (int i = 0; i < ammo.Length; i++)
+        {
+            Rigidbody bullet = ammo[i].GetComponent<Rigidbody>();
+            bullet.velocity = Vector3.zero; //stops any existing physics on bullet
+
+            Vector3 angledShot = shootingAngle();
+            
+            bullet.AddForce(-frontOfBarrel.transform.right * thrustForce, ForceMode.Impulse);
+        }
+    }
+    //Calculate vector to shoot objects from cannon
+    public Vector3 shootingAngle()
+    {
+        Vector3 shootingAngle = Vector3.zero;
+
+        shootingAngle = new Vector3(transform.forward.z , transform.eulerAngles.z, 0f);
+        Debug.Log(shootingAngle);
+
+        return shootingAngle;
     }
 
     //Following for testing

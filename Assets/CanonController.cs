@@ -37,7 +37,7 @@ public class CanonController : MonoBehaviour
         //Thrust Values Initialized
         thrustForce = 0f;
         maxThrustForce = 15f;
-        minThrustForce = 0.5f;
+        minThrustForce = 1f;
     }
 
 

@@ -7,8 +7,8 @@ public class CanonController : MonoBehaviour
     /*-- Rotation of Canon Variables --*/
     public float rotationSpeed;         //How fast barrel will rotate along z-axis
 
-    public bool rotateCanonUpwards;     //Allow rotation upwards
-    public bool rotateCanonDownwards;   //Allow rotation downwards
+    private bool rotateCanonUpwards;     //Allow rotation upwards
+    private bool rotateCanonDownwards;   //Allow rotation downwards
 
     private float maxRotation = 43.5f;  //Restrict rotation upwards     (Max Value barrel may rotate)
     private float minRotation = 300f;   //Restrict rotation downwards    (Min Value barrel may rotate)
@@ -18,6 +18,7 @@ public class CanonController : MonoBehaviour
     public GameObject frontOfBarrel;    //Front Of Barrel Object
 
     private GameObject[] ammo;          //List of all ammo to shoot out of cannon
+    private bool addingThrustingPower;  //Adds thrust force as player holds down button
     public float thrustForce;           //Force of objects flung out of cannon
 
 
@@ -26,13 +27,14 @@ public class CanonController : MonoBehaviour
     void Start()
     {
         rotationSpeed = 0.05f;
-        thrustForce = 10f;
+        thrustForce = 0f;
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        /*-- Rotation of Canon --*/
         //Debug.Log(transform.eulerAngles.z);
 
         // Rotates Canon Upwards if button held down
@@ -56,6 +58,22 @@ public class CanonController : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0f, 0f, minRotation);
         }
+
+        /*-- Firing Canon --*/
+        if (addingThrustingPower)
+        {
+            thrustForce += 0.01f;
+
+            if (thrustForce >= 10f)
+            {
+                thrustForce = 10f;
+            }
+            Debug.Log(thrustForce);
+        }
+        else
+        {
+            thrustForce = 0f;
+        }
     }
 
 
@@ -71,6 +89,12 @@ public class CanonController : MonoBehaviour
     {
         Debug.Log("Rotate Downwards");
         rotateCanonDownwards = _rotateDown;
+    }
+    //Allow to add power to cannon shot
+    public void addThrust(bool _addThrust)
+    {
+        Debug.Log("Thrusting");
+        addingThrustingPower = _addThrust;
     }
     //Fires Cannon
     public void fire()

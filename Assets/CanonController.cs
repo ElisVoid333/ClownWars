@@ -14,7 +14,7 @@ public class CanonController : MonoBehaviour
     private bool rotateCanonUpwards;                                    //Allow rotation upwards
     private bool rotateCanonDownwards;                                  //Allow rotation downwards
 
-    private float maxRotation = 43.5f;                                   //Restrict rotation upwards     (Max Value barrel may rotate)
+    private float maxRotation = 43.5f;                                  //Restrict rotation upwards     (Max Value barrel may rotate)
     private float minRotation = 300f;                                   //Restrict rotation downwards    (Min Value barrel may rotate)
 
 
@@ -24,14 +24,20 @@ public class CanonController : MonoBehaviour
     private List <GameObject> ammo = new List<GameObject>();            //List of all ammo to shoot out of cannon
     private bool addingThrustingPower;                                  //Adds thrust force as player holds down button
     public float thrustForce;                                           //Force of objects flung out of cannon
-
+    public float maxThrustForce;                                        //Maximum thrust to flung objects out of cannon
+    public float minThrustForce;                                        //Minimum thrust to flung objects out of cannon
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //Rotation Values Initialized
         rotationSpeed = 0.05f;
+
+        //Thrust Values Initialized
         thrustForce = 0f;
+        maxThrustForce = 15f;
+        minThrustForce = 0.5f;
     }
 
 
@@ -68,9 +74,9 @@ public class CanonController : MonoBehaviour
         {
             thrustForce += 0.01f;
 
-            if (thrustForce >= 10f)
+            if (thrustForce >= maxThrustForce)
             {
-                thrustForce = 10f;
+                thrustForce = maxThrustForce;
             }
             //Debug.Log(thrustForce);
         }
@@ -113,7 +119,7 @@ public class CanonController : MonoBehaviour
         shoot();
 
         ammo = new List<GameObject>();  //Resets List
-        thrustForce = 0f;               //Resets force applied to objects when shot
+        thrustForce = minThrustForce;   //Resets force applied to objects when shot
     }
 
 

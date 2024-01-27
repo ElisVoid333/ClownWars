@@ -153,6 +153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3565435381640022611}
   - component: {fileID: 6966197212646249900}
+  - component: {fileID: 1478611889181988853}
   m_Layer: 0
   m_Name: CanonTest
   m_TagString: Untagged
@@ -188,8 +189,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9563eef8e0c8e7446b7c5b33f5958540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clown: {fileID: 5274668357001201972, guid: cc0bc5e2007399641a523ecfd5b4f2a8, type: 3}
   rotationSpeed: 0
-  rotateCanonUpwards: 0
-  rotateCanonDownwards: 0
   frontOfBarrel: {fileID: 561790876653998794}
   thrustForce: 0
+--- !u!65 &1478611889181988853
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511448903746514208}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.875929, y: 1.0366633, z: 10.12932}
+  m_Center: {x: -7.3220186, y: 1.0831844, z: 2.1692266}

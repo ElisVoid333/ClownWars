@@ -1,25 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CanonController : MonoBehaviour
 {
+    /*-- Instances --*/
+    public GameObject clown;
+
     /*-- Rotation of Canon Variables --*/
-    public float rotationSpeed;         //How fast barrel will rotate along z-axis
+    public float rotationSpeed;                                         //How fast barrel will rotate along z-axis
 
-    private bool rotateCanonUpwards;     //Allow rotation upwards
-    private bool rotateCanonDownwards;   //Allow rotation downwards
+    private bool rotateCanonUpwards;                                    //Allow rotation upwards
+    private bool rotateCanonDownwards;                                  //Allow rotation downwards
 
-    private float maxRotation = 43.5f;  //Restrict rotation upwards     (Max Value barrel may rotate)
-    private float minRotation = 300f;   //Restrict rotation downwards    (Min Value barrel may rotate)
+    private float maxRotation = 43.5f;                                   //Restrict rotation upwards     (Max Value barrel may rotate)
+    private float minRotation = 300f;                                   //Restrict rotation downwards    (Min Value barrel may rotate)
 
 
     /*-- Firing Canon Variables --*/
-    public GameObject frontOfBarrel;    //Front Of Barrel Object
+    public GameObject frontOfBarrel;                                    //Front Of Barrel Object
 
-    private GameObject[] ammo;          //List of all ammo to shoot out of cannon
-    private bool addingThrustingPower;  //Adds thrust force as player holds down button
-    public float thrustForce;           //Force of objects flung out of cannon
+    private List <GameObject> ammo = new List<GameObject>();            //List of all ammo to shoot out of cannon
+    private bool addingThrustingPower;                                  //Adds thrust force as player holds down button
+    public float thrustForce;                                           //Force of objects flung out of cannon
 
 
 
@@ -38,12 +42,12 @@ public class CanonController : MonoBehaviour
         //Debug.Log(transform.eulerAngles.z);
 
         // Rotates Canon Upwards if button held down
-        if (rotateCanonUpwards)
+        if (rotateCanonUpwards || Input.GetKey(KeyCode.W))
         {
             transform.Rotate(0f, 0.0f, rotationSpeed, Space.World);
         }
         // Rotates Canon Downwards if button held down
-        if (rotateCanonDownwards)
+        if (rotateCanonDownwards || Input.GetKey(KeyCode.S))
         {
             transform.Rotate(0f, 0.0f, -rotationSpeed, Space.World);
         }
@@ -68,7 +72,7 @@ public class CanonController : MonoBehaviour
             {
                 thrustForce = 10f;
             }
-            Debug.Log(thrustForce);
+            //Debug.Log(thrustForce);
         }
         else
         {
@@ -79,7 +83,7 @@ public class CanonController : MonoBehaviour
         //Spawns Ball on top of collider
         if (Input.GetKeyDown(KeyCode.A))
         {
-            
+            Instantiate(clown, new Vector3(-6.55f, 5.32f, -1.5f), Quaternion.identity);
         }
     }
 
@@ -107,35 +111,40 @@ public class CanonController : MonoBehaviour
     public void fire()
     {
         Debug.Log("FIIIIIRRREEE!");
+        //Debug.Log(thrustForce);
+        
         grabAmmo();
         shoot();
+
+        ammo = new List<GameObject>(); //Resets List
     }
 
 
     /*-- Canon Functions --*/
-    //Grabs all objects in scene with specific tag
+    //Puts all ammo in front of barrel
     private void grabAmmo()
     {
-        ammo = GameObject.FindGameObjectsWithTag("Clown");
+        //ammo = GameObject.FindGameObjectsWithTag("Clown");
 
-        for (int i = 0; i < ammo.Length; i++)
+        for (int i = 0; i < ammo.Count; i++)
         {
+            ammo[i].SetActive(true);
+
             ammo[i].gameObject.transform.position = frontOfBarrel.transform.position;
         }
     }
     //Shoots all objects in GameObject[] ammo
     private void shoot()
     {
-        ammo = GameObject.FindGameObjectsWithTag("Clown");
+       // ammo = GameObject.FindGameObjectsWithTag("Clown");
 
-        for (int i = 0; i < ammo.Length; i++)
+        for (int i = 0; i < ammo.Count; i++)
         {
             Rigidbody bullet = ammo[i].GetComponent<Rigidbody>();
             bullet.velocity = Vector3.zero; //stops any existing physics on bullet
 
             Vector3 angledShot = shootingAngle();
-            
-            bullet.AddRelativeForce(frontOfBarrel.transform.position * thrustForce, ForceMode.Impulse);
+            bullet.AddForce(frontOfBarrel.transform.position * thrustForce, ForceMode.Impulse);
         }
     }
     //Calculate vector to shoot objects from cannon
@@ -146,9 +155,10 @@ public class CanonController : MonoBehaviour
         shootingAngle = -frontOfBarrel.transform.right;
         shootingAngle.y = Mathf.Abs(transform.rotation.y);
 
-        Debug.Log(shootingAngle);
+        //Debug.Log(shootingAngle);
         return shootingAngle;
     }
+   
 
     /*-- Trigger Events --*/
     private void OnTriggerEnter(Collider other)
@@ -156,6 +166,8 @@ public class CanonController : MonoBehaviour
         if (other.tag == "Clown")
         {
             Debug.Log("Clown has entered the cannon");
+            ammo.Add(other.gameObject);
+            other.gameObject.SetActive(false);
         }
     }
 }

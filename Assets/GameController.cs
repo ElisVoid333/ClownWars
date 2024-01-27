@@ -15,14 +15,15 @@ public class GameController : MonoBehaviour
     void Start()
     {
         maxTime = 120f;     // 2 Minutes
+        timer = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        timer -= Time.deltaTime;
 
-        float timeLeft = maxTime - timer;
+        float timeLeft = maxTime + timer;
 
         timeOutput.text = "Timer: " + (int)timeLeft;
     }

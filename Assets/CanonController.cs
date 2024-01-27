@@ -74,10 +74,6 @@ public class CanonController : MonoBehaviour
             }
             //Debug.Log(thrustForce);
         }
-        else
-        {
-            thrustForce = 0f;
-        }
 
         /*-- For Testing --*/
         //Spawns Ball on top of collider
@@ -116,7 +112,8 @@ public class CanonController : MonoBehaviour
         grabAmmo();
         shoot();
 
-        ammo = new List<GameObject>(); //Resets List
+        ammo = new List<GameObject>();  //Resets List
+        thrustForce = 0f;               //Resets force applied to objects when shot
     }
 
 

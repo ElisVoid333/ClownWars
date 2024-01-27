@@ -2,6 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public struct Ammo
+{
+    public Ammo(string name, int audioTag)
+    {
+        string clownType = name;
+        int clownAudioTag = audioTag;
+    }
+}
+
 public class TestClownController : MonoBehaviour
 {
     public static TestClownController instance = null;
@@ -9,6 +19,8 @@ public class TestClownController : MonoBehaviour
     public GameObject ClownPrefab;
     public GameObject LaunchTarget;
     public float LaunchSpeed;
+
+    private List<Ammo> ammoLoaded = new List<Ammo>();
 
     private GameObject CurrentClown = null;
 
@@ -23,7 +35,7 @@ public class TestClownController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (CurrentClown == null) SpawnClown(); 
+
     }
 
     // Update is called once per frame
@@ -41,6 +53,10 @@ public class TestClownController : MonoBehaviour
     public void SpawnClown()
     {
         StartCoroutine(ResetCastle());
+
+        Ammo nextClown = ammoLoaded[0];
+
+
         CurrentClown = Instantiate(ClownPrefab, this.transform);
         readyToLaunch = true;
     }
@@ -64,5 +80,12 @@ public class TestClownController : MonoBehaviour
         {
             c.GetComponent<CastlePartController>().Reset();
         }
+    }
+
+    public void loadAmmo(string type, int audio)
+    {
+        Ammo newAmmo = new Ammo(type, audio);
+
+        ammoLoaded.Add(newAmmo);
     }
 }

@@ -148,3 +148,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b67fc9e06af6914c8241ad2954a34df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clownName: Bomb Clown
+  audioID: 0

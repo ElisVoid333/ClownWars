@@ -45,7 +45,7 @@ public class TestClownController : MonoBehaviour
 
     private List<Ammo> ammoLoaded = new List<Ammo>();
 
-    private GameObject CurrentClown = null;
+    public GameObject CurrentClown = null;
 
     private bool spaceUp = true;
     private bool readyToLaunch = true;

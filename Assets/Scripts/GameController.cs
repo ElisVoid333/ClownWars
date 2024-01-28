@@ -15,7 +15,6 @@ public class GameController : MonoBehaviour
 
     /*-- Timer Variables --*/
     public TMP_Text timeOutput;
-    public TMP_Text timerOutput;
 
     public float maxTime;
     private float timer;
@@ -139,9 +138,22 @@ public class GameController : MonoBehaviour
                 break;
         }
     }
-    public void destroyThis()
-    {
 
+    public void SpawnClown(string clownType)
+    {
+        switch (clownType)
+        {
+            case "Rocket Clown":
+                rocketSpawner.GetComponent<ClownRackController>().SpawnClown();
+                break;
+            case "Bomb Clown":
+                bombSpawner.GetComponent<ClownRackController>().SpawnClown();
+                break;
+            case "Normal Clown":
+            default:
+                normalSpawner.GetComponent<ClownRackController>().SpawnClown();
+                break;
+        }
     }
 
 }

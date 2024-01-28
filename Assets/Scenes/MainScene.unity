@@ -1273,7 +1273,7 @@ PrefabInstance:
     - target: {fileID: 1831533655904197253, guid: 87497000db2bc684cbfb34a2f8455d6e, type: 3}
       propertyPath: bombSpawner
       value: 
-      objectReference: {fileID: 555732392}
+      objectReference: {fileID: 1694245913}
     - target: {fileID: 1831533655904197253, guid: 87497000db2bc684cbfb34a2f8455d6e, type: 3}
       propertyPath: scoreOutput
       value: 
@@ -1286,6 +1286,10 @@ PrefabInstance:
       propertyPath: rockerSpawner
       value: 
       objectReference: {fileID: 1694245913}
+    - target: {fileID: 1831533655904197253, guid: 87497000db2bc684cbfb34a2f8455d6e, type: 3}
+      propertyPath: rocketSpawner
+      value: 
+      objectReference: {fileID: 555732392}
     - target: {fileID: 5992807115489783218, guid: 87497000db2bc684cbfb34a2f8455d6e, type: 3}
       propertyPath: m_Name
       value: GameController

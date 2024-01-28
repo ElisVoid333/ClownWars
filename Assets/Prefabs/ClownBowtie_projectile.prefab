@@ -1793,6 +1793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e9e0bdb539f9747a0adbd219f59089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clownName: Normal Clown
   exploding: 0
   launched: 0
   killVelocity: 0.1

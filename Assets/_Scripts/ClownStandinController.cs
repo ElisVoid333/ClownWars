@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class ClownStandinController : MonoBehaviour
 {
+    public string clownName = "";
+
     public bool exploding = false;
     public bool launched = false;
     public float killVelocity = 0.1f;
@@ -58,9 +60,18 @@ public class ClownStandinController : MonoBehaviour
         if (other.tag == "PlayArea")
         {
             //TestClownController.instance.SpawnClown();
-            GameObject clownShell = this.transform.parent.gameObject;
-            clownShell = clownShell.transform.parent.gameObject;
-            Destroy(clownShell);
+            if (clownName == "Normal Clown")
+            {
+                GameObject clownShell = this.transform.parent.gameObject;
+                Destroy(clownShell);
+            }
+
+            if (clownName == "Rocket Clown")
+            {
+                GameObject clownShell = this.transform.parent.gameObject;
+                clownShell = clownShell.transform.parent.gameObject;
+                Destroy(clownShell);
+            }
         }
     }
 
@@ -68,9 +79,18 @@ public class ClownStandinController : MonoBehaviour
     {
         yield return new WaitForSeconds(killTime);
         //TestClownController.instance.SpawnClown();
-        GameObject clownShell = this.transform.parent.gameObject;
-        clownShell = clownShell.transform.parent.gameObject;
-        Destroy(clownShell);
+        if (clownName == "Normal Clown")
+        {
+            GameObject clownShell = this.transform.parent.gameObject;
+            Destroy(clownShell);
+        }
+
+        if (clownName == "Rocket Clown")
+        {
+            GameObject clownShell = this.transform.parent.gameObject;
+            clownShell = clownShell.transform.parent.gameObject;
+            Destroy(clownShell);
+        }
     }
 
     IEnumerator ExplodeClown()

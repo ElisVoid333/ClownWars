@@ -41,6 +41,7 @@ public class TestClownController : MonoBehaviour
     public GameObject BombClownPrefab;
 
     public GameObject LaunchTarget;
+    public GameObject particleSystem;
     //public float LaunchSpeed;
 
     private List<Ammo> ammoLoaded = new List<Ammo>();
@@ -101,14 +102,14 @@ public class TestClownController : MonoBehaviour
             switch (nextClown.ClownType)
             {
                 case "Rocket Clown":
-                    CurrentClown = Instantiate(RocketClownPrefab, LaunchTarget.transform);
+                    CurrentClown = Instantiate(RocketClownPrefab, LaunchTarget.transform.position, Quaternion.identity);
                     break;
                 case "Bomb Clown":
-                    CurrentClown = Instantiate(BombClownPrefab, LaunchTarget.transform);
+                    CurrentClown = Instantiate(BombClownPrefab, LaunchTarget.transform.position, Quaternion.identity);
                     break;
                 case "Normal Clown":
                 default:
-                    CurrentClown = Instantiate(NormalClownPrefab, LaunchTarget.transform);
+                    CurrentClown = Instantiate(NormalClownPrefab, LaunchTarget.transform.position, Quaternion.identity);
                     break;
             }
 
@@ -152,6 +153,8 @@ public class TestClownController : MonoBehaviour
 
             clownCore.GetComponent<Rigidbody>().AddForce(direction, ForceMode.Impulse);
             clownCore.GetComponent<ClownStandinController>().launched = true;
+
+            Instantiate(particleSystem, LaunchTarget.transform.position, Quaternion.identity);
             thrustForce = minThrustForce;   //Resets force applied to objects when shot
 
             CurrentClown.GetComponent<ClownSoundController>().playShotSound();

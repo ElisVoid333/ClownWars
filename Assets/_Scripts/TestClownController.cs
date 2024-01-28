@@ -17,6 +17,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 
 public struct Ammo
@@ -63,8 +64,8 @@ public class TestClownController : MonoBehaviour
     void Start()
     {
         //Thrust Values Initialized
-        maxThrustForce = 50f;
-        minThrustForce = 5f;
+        maxThrustForce = 5000f;
+        minThrustForce = 50f;
     }
 
     // Update is called once per frame
@@ -73,7 +74,7 @@ public class TestClownController : MonoBehaviour
         /*-- Firing Canon --*/
         if (addingThrustingPower)
         {
-            thrustForce += 0.1f;
+            thrustForce += 1f;
 
             if (thrustForce >= maxThrustForce)
             {
@@ -101,27 +102,55 @@ public class TestClownController : MonoBehaviour
             switch (nextClown.ClownType)
             {
                 case "Rocket Clown":
-                    CurrentClown = Instantiate(RocketClownPrefab, this.transform);
+                    CurrentClown = Instantiate(RocketClownPrefab, LaunchTarget.transform);
                     break;
                 case "Bomb Clown":
-                    CurrentClown = Instantiate(BombClownPrefab, this.transform);
+                    CurrentClown = Instantiate(BombClownPrefab, LaunchTarget.transform);
                     break;
                 case "Normal Clown":
                 default:
-                    CurrentClown = Instantiate(NormalClownPrefab, this.transform);
+                    CurrentClown = Instantiate(NormalClownPrefab, LaunchTarget.transform);
                     break;
             }
 
             ammoLoaded.RemoveAt(0);
-            Debug.Log("Thrust: " + thrustForce);
+            //Debug.Log("Thrust: " + thrustForce);
+            GameObject clownCore = null;
 
-            Vector3 direction = LaunchTarget.transform.position - CurrentClown.transform.position;
+            foreach (Transform child in CurrentClown.transform)
+            {
+                if (child.tag == "Clown")
+                {
+                    clownCore = child.gameObject;
+                    //Debug.Log("Core: " + clownCore.name);
+                    break;
+                }else if(clownCore != null)
+                {
+                    //Debug.Log("Core: " + clownCore.name);
+                    break;
+                }
+
+                foreach (Transform grandChild in child)
+                {
+                    if (grandChild.tag == "Clown")
+                    {
+                        clownCore = grandChild.gameObject;
+                        //Debug.Log("Core: " + clownCore.name);
+                        break;
+                    }
+                }
+            }
+
+            Debug.Log("Core: " + clownCore.name);
+            Debug.Log("Force: " + thrustForce);
+
+            Vector3 direction = LaunchTarget.transform.position - this.transform.position;
             direction = Vector3.Normalize(direction);
             direction *= thrustForce;
             Debug.Log("Direction: " + direction);
 
-            CurrentClown.GetComponent<Rigidbody>().AddForce(direction, ForceMode.Impulse);
-            CurrentClown.GetComponent<ClownStandinController>().launched = true;
+            clownCore.GetComponent<Rigidbody>().AddForce(direction, ForceMode.Impulse);
+            clownCore.GetComponent<ClownStandinController>().launched = true;
             thrustForce = minThrustForce;   //Resets force applied to objects when shot
 
             StartCoroutine(ResetCastle());

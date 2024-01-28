@@ -42,15 +42,6 @@ public class ClownSoundController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Funnel") { 
-            if (clownSoundSource.isPlaying) clownSoundSource.Stop();
-
-            clownSoundSource.PlayOneShot(clownSlides[randomTrack()]);
-        }
-    }
-
     public void playGrabSound()
     {
         if(clownSoundSource.isPlaying) clownSoundSource.Stop();
@@ -60,7 +51,8 @@ public class ClownSoundController : MonoBehaviour
 
     private int randomTrack()
     {
-        int random = Random.Range(0, 4);
+        int random = Random.Range(0, 3);
+        Debug.Log(random);
         return random + audioID;
     }
 
@@ -69,5 +61,19 @@ public class ClownSoundController : MonoBehaviour
         int random = Random.Range(1, 5);
 
         return 1.5f * random;
+    }
+
+    public void playShotSound()
+    {
+        if (clownSoundSource.isPlaying) clownSoundSource.Stop();
+
+        clownSoundSource.PlayOneShot(clownShots[randomTrack()]);
+    }
+
+    public void playSlideSound()
+    {
+        if (clownSoundSource.isPlaying) clownSoundSource.Stop();
+
+        clownSoundSource.PlayOneShot(clownSlides[randomTrack()]);
     }
 }

@@ -19,12 +19,14 @@ public class ClownSoundController : MonoBehaviour
     private float laughTime = 0.0f;
     private float lastLaugh = 0.0f;
 
-
+    private void Awake()
+    {
+        clownSoundSource = GetComponent<AudioSource>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        clownSoundSource = GetComponent<AudioSource>();
         laughTime = randomLaughTime();
     }
 

@@ -22,9 +22,9 @@ public class GameController : MonoBehaviour
 
     // Score Variables
     public TMP_Text scoreOutput;
-    public int score = 0;
-    public int rocketClownScore = 1500;
-    public int bombClownScore = 4000;
+    private int score = 0;
+    private int rocketClownScore = 1500;
+    private int bombClownScore = 4000;
     private int nextRocket = 1;
     private int nextBomb = 1;
 
@@ -42,9 +42,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxTime = 120f;     // 2 Minutes
         timer = 0f;
-
         score = 0;
         
     }
@@ -70,7 +68,6 @@ public class GameController : MonoBehaviour
 
         if (timeLeft <= 0f)
         {
-            DontDestroyOnLoad(this.gameObject);
             SceneManager.LoadScene(2);
         }
 
@@ -101,6 +98,8 @@ public class GameController : MonoBehaviour
             bombSpawner.GetComponent<ClownRackController>().SpawnClown();
             nextBomb++;
         }
+
+        ScoreController.instance.score = score;
     }
 
     public void StartGame()

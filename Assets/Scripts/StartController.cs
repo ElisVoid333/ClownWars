@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class EndController : MonoBehaviour
+public class StartController : MonoBehaviour
 {
     int score;
     public TMP_Text scoreOutput;
@@ -18,10 +18,7 @@ public class EndController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (ScoreController.instance != null)
-        {
-            scoreOutput.text = "" + ScoreController.instance.score;
-        }
+
     }
 
     public void GoToMainMenu()

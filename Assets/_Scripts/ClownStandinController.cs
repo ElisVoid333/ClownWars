@@ -9,7 +9,7 @@ public class ClownStandinController : MonoBehaviour
 {
     public GameObject clownRoot;
     public string clownName = "";
-
+    public GameObject particleSystem;
     public bool exploding = false;
     public bool launched = false;
     public float killVelocity = 0.1f;
@@ -83,7 +83,7 @@ public class ClownStandinController : MonoBehaviour
                 c.GetComponent<Rigidbody>().AddExplosionForce(explosionForce, this.transform.position, explosionRadius, upwardsModifier);
             }
         }
-
+        Instantiate(particleSystem, this.transform.position, Quaternion.identity);
         
         // Activate Particle Effect
         done = true;

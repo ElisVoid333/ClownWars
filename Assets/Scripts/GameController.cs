@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
 
     // Clown Spawners
     public GameObject normalSpawner;
-    public GameObject rockerSpawner;
+    public GameObject rocketSpawner;
     public GameObject bombSpawner;
 
 
@@ -54,7 +54,7 @@ public class GameController : MonoBehaviour
 
         scoreOutput.text = "Score: " + score;
 
-        if(Input.GetKeyDown(KeyCode.A)) rockerSpawner.GetComponent<ClownRackController>().SpawnClown();
+        if(Input.GetKeyDown(KeyCode.A)) rocketSpawner.GetComponent<ClownRackController>().SpawnClown();
         if(Input.GetKeyDown(KeyCode.S)) bombSpawner.GetComponent<ClownRackController>().SpawnClown();
         if (Input.GetKeyDown(KeyCode.W)) normalSpawner.GetComponent<ClownRackController>().SpawnClown();
     }
@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
         
         if(score / rocketClownScore >= nextRocket)
         {
-            rockerSpawner.GetComponent<ClownRackController>().SpawnClown();
+            rocketSpawner.GetComponent<ClownRackController>().SpawnClown();
             nextRocket++;
         }
 
@@ -81,5 +81,14 @@ public class GameController : MonoBehaviour
     public void SpawnNormalClown()
     {
         normalSpawner.GetComponent<ClownRackController>().SpawnClown();
+    }
+    
+    public void SpawnRocketClown()
+    {
+        rocketSpawner.GetComponent<ClownRackController>().SpawnClown();
+    }
+    public void SpawnBombClown()
+    {
+        bombSpawner.GetComponent<ClownRackController>().SpawnClown();
     }
 }

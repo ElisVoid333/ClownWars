@@ -1,3 +1,18 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ****************Template**********************
+//
+//   Project - CLOWN WARS
+//   Filename - CastlePartControler.cs
+//   Author - Eric DeMarbre
+//   Date - January 27 2024
+//
+//   Description - Controls the behaviour of the castle parts for Clown Wars, particularly physics  
+//   and collision behaviour. 
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -25,7 +40,7 @@ public class TestClownController : MonoBehaviour
     public GameObject BombClownPrefab;
 
     public GameObject LaunchTarget;
-    public float LaunchSpeed;
+    //public float LaunchSpeed;
 
     private List<Ammo> ammoLoaded = new List<Ammo>();
 
@@ -33,6 +48,11 @@ public class TestClownController : MonoBehaviour
 
     private bool spaceUp = true;
     private bool readyToLaunch = true;
+
+    private bool addingThrustingPower;                                  //Adds thrust force as player holds down button
+    public float thrustForce;                                           //Force of objects flung out of cannon
+    public float maxThrustForce;                                        //Maximum thrust to flung objects out of cannon
+    public float minThrustForce;                                        //Minimum thrust to flung objects out of cannon
 
     private void Awake()
     {
@@ -42,22 +62,37 @@ public class TestClownController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //Thrust Values Initialized
+        maxThrustForce = 50f;
+        minThrustForce = 5f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && spaceUp)
+        /*-- Firing Canon --*/
+        if (addingThrustingPower)
+        {
+            thrustForce += 0.1f;
+
+            if (thrustForce >= maxThrustForce)
+            {
+                thrustForce = maxThrustForce;
+            }
+            //Debug.Log(thrustForce);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && spaceUp)
         {
             spaceUp = false;
             LaunchClown();
         }
 
-        if(Input.GetKeyUp(KeyCode.Space) && !spaceUp) spaceUp = true;   
+        if(Input.GetKeyUp(KeyCode.Space) && !spaceUp) spaceUp = true;
+
     }
 
-    private void LaunchClown()
+    public void LaunchClown()
     {
         if (ammoLoaded.Count > 0)
         {
@@ -78,13 +113,16 @@ public class TestClownController : MonoBehaviour
             }
 
             ammoLoaded.RemoveAt(0);
+            Debug.Log("Thrust: " + thrustForce);
 
             Vector3 direction = LaunchTarget.transform.position - CurrentClown.transform.position;
             direction = Vector3.Normalize(direction);
-            direction *= LaunchSpeed;
+            direction *= thrustForce;
+            Debug.Log("Direction: " + direction);
 
             CurrentClown.GetComponent<Rigidbody>().AddForce(direction, ForceMode.Impulse);
             CurrentClown.GetComponent<ClownStandinController>().launched = true;
+            thrustForce = minThrustForce;   //Resets force applied to objects when shot
 
             StartCoroutine(ResetCastle());
         }
@@ -105,5 +143,12 @@ public class TestClownController : MonoBehaviour
         Ammo newAmmo = new Ammo(type, audio);
 
         ammoLoaded.Add(newAmmo);
+    }
+
+    //Allow to add power to cannon shot
+    public void addThrust(bool _addThrust)
+    {
+        Debug.Log("Thrusting");
+        addingThrustingPower = _addThrust;
     }
 }

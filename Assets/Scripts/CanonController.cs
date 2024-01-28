@@ -1,6 +1,19 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// ****************Template**********************
+//
+//   Project - CLOWN WARS
+//   Filename - CastlePartControler.cs
+//   Author - Eric DeMarbre
+//   Date - January 27 2024
+//
+//   Description - Controls the behaviour of the castle parts for Clown Wars, particularly physics  
+//   and collision behaviour. 
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
 using System.Collections;
 using System.Collections.Generic;
-//using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -25,10 +38,10 @@ public class CanonController : MonoBehaviour
     private List<GameObject> ammo = new List<GameObject>();            //List of all ammo to shoot out of cannon out of GameObject (Takes GameObject)
     //private int[] ammo;                                                 //List of all ammo to shoot out of cannon out of int (counter)
 
-    private bool addingThrustingPower;                                  //Adds thrust force as player holds down button
-    public float thrustForce;                                           //Force of objects flung out of cannon
-    public float maxThrustForce;                                        //Maximum thrust to flung objects out of cannon
-    public float minThrustForce;                                        //Minimum thrust to flung objects out of cannon
+    //private bool addingThrustingPower;                                  //Adds thrust force as player holds down button
+    //public float thrustForce;                                           //Force of objects flung out of cannon
+    //public float maxThrustForce;                                        //Maximum thrust to flung objects out of cannon
+    //public float minThrustForce;                                        //Minimum thrust to flung objects out of cannon
 
 
     // Start is called before the first frame update
@@ -38,9 +51,9 @@ public class CanonController : MonoBehaviour
         rotationSpeed = 0.05f;
 
         //Thrust Values Initialized
-        thrustForce = 0f;
-        maxThrustForce = 15f;
-        minThrustForce = 1f;
+        //thrustForce = 0f;
+        //maxThrustForce = 15f;
+        //minThrustForce = 1f;
     }
 
 
@@ -73,23 +86,23 @@ public class CanonController : MonoBehaviour
         }
 
         /*-- Firing Canon --*/
-        if (addingThrustingPower)
-        {
-            thrustForce += 0.01f;
+        //if (addingThrustingPower)
+        //{
+        //    thrustForce += 0.01f;
 
-            if (thrustForce >= maxThrustForce)
-            {
-                thrustForce = maxThrustForce;
-            }
+        //    if (thrustForce >= maxThrustForce)
+        //    {
+        //        thrustForce = maxThrustForce;
+        //    }
             //Debug.Log(thrustForce);
-        }
+        //}
 
         /*-- For Testing --*/
         //Spawns Ball on top of collider
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Instantiate(clown, new Vector3(-6.55f, 5.32f, -1.5f), Quaternion.identity);
-        }
+        //if (Input.GetKeyDown(KeyCode.A))
+        //{
+        //    Instantiate(clown, new Vector3(-6.55f, 5.32f, -1.5f), Quaternion.identity);
+        //}
     }
 
 
@@ -107,23 +120,23 @@ public class CanonController : MonoBehaviour
         rotateCanonDownwards = _rotateDown;
     }
     //Allow to add power to cannon shot
-    public void addThrust(bool _addThrust)
-    {
-        Debug.Log("Thrusting");
-        addingThrustingPower = _addThrust;
-    }
+    //public void addThrust(bool _addThrust)
+    //{
+    //    Debug.Log("Thrusting");
+    //    addingThrustingPower = _addThrust;
+    //}
     //Fires Cannon
-    public void fire()
-    {
-        Debug.Log("FIIIIIRRREEE!");
-        //Debug.Log(thrustForce);
+    //public void fire()
+    //{
+    //    Debug.Log("FIIIIIRRREEE!");
+    //    //Debug.Log(thrustForce);
 
-        grabAmmo();
-        shoot();
+    //    grabAmmo();
+    //    shoot();
 
-        ammo = new List<GameObject>();  //Resets List
-        thrustForce = minThrustForce;   //Resets force applied to objects when shot
-    }
+    //    ammo = new List<GameObject>();  //Resets List
+    //    //thrustForce = minThrustForce;   //Resets force applied to objects when shot
+    //}
 
 
     /*-- Canon Functions --*/
@@ -141,41 +154,41 @@ public class CanonController : MonoBehaviour
         }
     }
     //Shoots all objects in GameObject[] ammo
-    private void shoot()
-    {
+    //private void shoot()
+    //{
         // ammo = GameObject.FindGameObjectsWithTag("Clown");
 
-        for (int i = 0; i < ammo.Count; i++)
-        {
-            Rigidbody bullet = ammo[i].GetComponent<Rigidbody>();
-            bullet.velocity = Vector3.zero; //stops any existing physics on bullet
+    //    for (int i = 0; i < ammo.Count; i++)
+    //    {
+    //        Rigidbody bullet = ammo[i].GetComponent<Rigidbody>();
+    //        bullet.velocity = Vector3.zero; //stops any existing physics on bullet
 
-            Vector3 angledShot = shootingAngle();
-            bullet.AddForce(frontOfBarrel.transform.position * thrustForce, ForceMode.Impulse);
-        }
-    }
+    //        Vector3 angledShot = shootingAngle();
+    //        bullet.AddForce(frontOfBarrel.transform.position * thrustForce, ForceMode.Impulse);
+    //    }
+    //}
     //Calculate vector to shoot objects from cannon
-    public Vector3 shootingAngle()
-    {
-        Vector3 shootingAngle = Vector3.zero;
+    //public Vector3 shootingAngle()
+    //{
+    //    Vector3 shootingAngle = Vector3.zero;
 
-        shootingAngle = -frontOfBarrel.transform.right;
-        shootingAngle.y = Mathf.Abs(transform.rotation.y);
+    //    shootingAngle = -frontOfBarrel.transform.right;
+    //    shootingAngle.y = Mathf.Abs(transform.rotation.y);
 
         //Debug.Log(shootingAngle);
-        return shootingAngle;
-    }
+    //    return shootingAngle;
+    //}
 
 
     /*-- Trigger Events --*/
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Clown")
-        {
-            Debug.Log("Clown has entered the cannon");
-            ammo.Add(other.gameObject);
-            other.gameObject.SetActive(false);
-            Destroy(other.gameObject.transform.root);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Clown")
+    //    {
+    //        Debug.Log("Clown has entered the cannon");
+    //        ammo.Add(other.gameObject);
+    //        other.gameObject.SetActive(false);
+    //        Destroy(other.gameObject.transform.root);
+    //    }
+    //}
 }

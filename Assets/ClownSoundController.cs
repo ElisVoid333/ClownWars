@@ -1,0 +1,73 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Rendering;
+
+public class ClownSoundController : MonoBehaviour
+{
+    public int audioID = 0;
+
+    public AudioClip[] clownLaughs;
+    public AudioClip[] clownGrabs;
+    public AudioClip[] clownSlides;
+    public AudioClip[] clownShots;
+    public AudioClip[] clownHits;
+
+    private AudioSource audioSource;
+
+    private float laughTime = 0.0f;
+    private float lastLaugh = 0.0f;
+
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        this.audioSource = GetComponent<AudioSource>();
+        laughTime = randomLaughTime();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Time.time - lastLaugh >= laughTime)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(clownLaughs[randomTrack()]);
+            }
+
+            lastLaugh = Time.time;
+            laughTime = randomLaughTime();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Funnel") { 
+            if (audioSource.isPlaying) audioSource.Stop();
+
+            audioSource.PlayOneShot(clownSlides[randomTrack()]);
+        }
+    }
+
+    public void playGrabSound()
+    {
+        if(audioSource.isPlaying) audioSource.Stop();
+
+        audioSource.PlayOneShot(clownGrabs[randomTrack()]);
+    }
+
+    private int randomTrack()
+    {
+        int random = Random.Range(0, 4);
+        return random + audioID;
+    }
+
+    private float randomLaughTime()
+    {
+        int random = Random.Range(1, 5);
+
+        return 1.5f * random;
+    }
+}

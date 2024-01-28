@@ -10,6 +10,7 @@ TagManager:
   - Ground
   - Explosion
   - Load
+  - Funnel
   layers:
   - Default
   - TransparentFX

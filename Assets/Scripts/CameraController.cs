@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         minCamPos = 3.962f;             //Default Spot
-        maxCamPos = 50.0f - minCamPos;  // this will get difference between the two, necessary for having a minCamPos
+        maxCamPos = 140.0f - minCamPos;  // this will get difference between the two, necessary for having a minCamPos
         trackingClown = false;
     }
 
@@ -64,11 +64,16 @@ public class CameraController : MonoBehaviour
         GameObject child = null;
         //Debug.Log(parent.gameObject);
         foreach (Transform transf in parent.transform) {
-            Debug.Log(transf.gameObject);
+            //Debug.Log(transf.gameObject);
             if(transf.name == "metarig.005") {
                 Debug.Log("GRABBY");
                 Transform hehe = transf.Find("spine");
                 child = hehe.gameObject;
+                break;
+            }
+            if (transf.name == "mixamorig:Hips")
+            {
+                child = transf.gameObject; 
                 break;
             }
         }

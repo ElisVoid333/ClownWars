@@ -136,7 +136,9 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 5195913773525393416, guid: 944ba129b50d84c44aad7eeb1d747120, type: 2}
+  - {fileID: -8060032494741639127, guid: 5d53d25d54910d243a92109ff922fc8f, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1

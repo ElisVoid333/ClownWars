@@ -45,10 +45,9 @@ public class TestClownController : MonoBehaviour
 
     private List<Ammo> ammoLoaded = new List<Ammo>();
 
-    private GameObject CurrentClown = null;
+    public GameObject CurrentClown = null;
 
     private bool spaceUp = true;
-    private bool readyToLaunch = true;
 
     private bool addingThrustingPower;                                  //Adds thrust force as player holds down button
     public float thrustForce;                                           //Force of objects flung out of cannon
@@ -113,6 +112,8 @@ public class TestClownController : MonoBehaviour
                     break;
             }
 
+            CurrentClown.GetComponent<ClownSoundController>().audioID = nextClown.ClownAudioTag;
+
             ammoLoaded.RemoveAt(0);
             //Debug.Log("Thrust: " + thrustForce);
             GameObject clownCore = null;
@@ -152,6 +153,8 @@ public class TestClownController : MonoBehaviour
             clownCore.GetComponent<Rigidbody>().AddForce(direction, ForceMode.Impulse);
             clownCore.GetComponent<ClownStandinController>().launched = true;
             thrustForce = minThrustForce;   //Resets force applied to objects when shot
+
+            CurrentClown.GetComponent<ClownSoundController>().playShotSound();
 
             StartCoroutine(ResetCastle());
         }

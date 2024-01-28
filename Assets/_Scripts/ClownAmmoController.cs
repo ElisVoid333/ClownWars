@@ -15,8 +15,8 @@ public class ClownAmmoController : MonoBehaviour
         {
             TestClownController.instance.loadAmmo(clownName, clownRoot.GetComponent<ClownSoundController>().audioID);
             GameController.instance.LoadClown(clownName);
-            if (clownName == "Normal Clown") GameController.instance.SpawnNormalClown();
-            if (clownName == "Rocket Clown") GameController.instance.SpawnRocketClown();
+            //if (clownName == "Normal Clown") GameController.instance.SpawnNormalClown();
+            //if (clownName == "Rocket Clown") GameController.instance.SpawnRocketClown();
             Destroy(clownRoot);
         }
     }
@@ -31,6 +31,7 @@ public class ClownAmmoController : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
             GameController.instance.LoadClown(clownName);
+            GameController.instance.SpawnClown(clownName);
             Destroy(clownRoot);
         }
     }

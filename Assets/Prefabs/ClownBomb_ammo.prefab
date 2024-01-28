@@ -869,7 +869,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7157549907971382223}
+        m_TargetAssemblyTypeName: ClownSoundController, Assembly-CSharp
+        m_MethodName: playGrabSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -1227,7 +1239,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7157549907971382223}
+        m_TargetAssemblyTypeName: ClownSoundController, Assembly-CSharp
+        m_MethodName: playGrabSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -1534,6 +1558,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5720560492164572463}
+  - component: {fileID: 7157549907971382223}
+  - component: {fileID: -1680310525970334962}
   m_Layer: 0
   m_Name: ClownBomb_ammo
   m_TagString: Untagged
@@ -1567,6 +1593,195 @@ Transform:
   - {fileID: 4001647486763305265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7157549907971382223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4153751071488141878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6fefee67522c34d90d37fc45fc1236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioID: 0
+  clownLaughs:
+  - {fileID: 8300000, guid: b7e8e9b6fa2237c4b88dc3324789fa59, type: 3}
+  - {fileID: 8300000, guid: 2dcf00d400adc8c4491d1936fe781420, type: 3}
+  - {fileID: 8300000, guid: 1a42a79f11176434389c4b5935c3ce3f, type: 3}
+  - {fileID: 8300000, guid: 70a773af108e0b44c9d17d481746eb12, type: 3}
+  - {fileID: 8300000, guid: 6512433a9a2432043ad7348db5a8ac97, type: 3}
+  - {fileID: 8300000, guid: 344c01e264ce8af4bbdb9fdfa9b51eb9, type: 3}
+  - {fileID: 8300000, guid: a0383d5039718d448ac49c69bd8b3923, type: 3}
+  - {fileID: 8300000, guid: 946cb147ebff97b46b1aa74c625904a2, type: 3}
+  - {fileID: 8300000, guid: e7988d634c053354288bf6b5237eaa8f, type: 3}
+  - {fileID: 8300000, guid: 7ec1d24d33f31bf48800abc704a58f2b, type: 3}
+  - {fileID: 8300000, guid: 736c8ff5c67d5f5468af03e3a8b5bf58, type: 3}
+  - {fileID: 8300000, guid: bde1fb74b64ad764da948c5d779b1f83, type: 3}
+  - {fileID: 8300000, guid: 23830b8a00cd85949928e2c0511bd183, type: 3}
+  - {fileID: 8300000, guid: 14cb566ae8718194bb7589773cd82b65, type: 3}
+  - {fileID: 8300000, guid: af0dcd3a2f0dd94409e425a87f2a562e, type: 3}
+  clownGrabs:
+  - {fileID: 8300000, guid: 9375d30b4328b344d93c58bdcb974b40, type: 3}
+  - {fileID: 8300000, guid: f5a514b0d355bf94aba1db1927780df0, type: 3}
+  - {fileID: 8300000, guid: 6bb40fc0b77305f4eb33a6036c740a4a, type: 3}
+  - {fileID: 8300000, guid: d3c83ce13fef7fe41849b1091e4fb822, type: 3}
+  - {fileID: 8300000, guid: fb747fade88d19e4dbb5e9309bb46bbc, type: 3}
+  - {fileID: 8300000, guid: 226060dfff79eaa4183849981efc6a35, type: 3}
+  - {fileID: 8300000, guid: dd1919c092fee9240908f16bb97907b9, type: 3}
+  - {fileID: 8300000, guid: 125e649ba7ac80f4e84af536ad7a0755, type: 3}
+  - {fileID: 8300000, guid: e3d234c247c679d4a9df0aeaeba8d36c, type: 3}
+  - {fileID: 8300000, guid: ac2cf3361b5103d41bb43b8032693087, type: 3}
+  - {fileID: 8300000, guid: c905abe51c6eee6479eed6230de47570, type: 3}
+  - {fileID: 8300000, guid: 9dba15915a9156e48976fa76a6b4cff1, type: 3}
+  - {fileID: 8300000, guid: bab939fb94294204aabcc3f4a33f4097, type: 3}
+  - {fileID: 8300000, guid: 0a0644f0e8bb9ed4d98b19f200585a29, type: 3}
+  - {fileID: 8300000, guid: e3b17a64646d71842a8e90bc6440fdc9, type: 3}
+  clownSlides:
+  - {fileID: 8300000, guid: 85828bac0724ce34c873409aecafe26d, type: 3}
+  - {fileID: 8300000, guid: 4457c726669c4134893739d47eb5e2a8, type: 3}
+  - {fileID: 8300000, guid: a8752cf859b19504a9967a3189d1be50, type: 3}
+  - {fileID: 8300000, guid: 58e03875b5d33ba4f9463a5cfbbad54d, type: 3}
+  - {fileID: 8300000, guid: fcabf4eb7831f904890710491f46fb6c, type: 3}
+  - {fileID: 8300000, guid: 7d78941120faf244990a4102ddd6a14e, type: 3}
+  - {fileID: 8300000, guid: 4165a0c116e996e428c6b0bce9e8d3aa, type: 3}
+  - {fileID: 8300000, guid: a6488cc290ba37f4497dd42fbe54d63e, type: 3}
+  - {fileID: 8300000, guid: 7faa2217b4739be4fb8bbe4deb2c3498, type: 3}
+  - {fileID: 8300000, guid: 576b13528906fbf41a9255dfab5511c1, type: 3}
+  - {fileID: 8300000, guid: dfd0f24ed4b86a343ad0d3793ae907a2, type: 3}
+  - {fileID: 8300000, guid: 66c38334871ea2c488e4dc24027adc22, type: 3}
+  - {fileID: 8300000, guid: 2ad22c5119846954bb9cc63342c2b326, type: 3}
+  - {fileID: 8300000, guid: 4db9c163a11620a4391256e44cc4e1c6, type: 3}
+  - {fileID: 8300000, guid: 097658c41d712cf4bbf6662936580916, type: 3}
+  clownShots:
+  - {fileID: 8300000, guid: a173e1aec43928846915b9fbb08a5b2e, type: 3}
+  - {fileID: 8300000, guid: 3cb76446c545f4a42b0d5c3356c92b9c, type: 3}
+  - {fileID: 8300000, guid: 6ce86d0f4a21aba4aad11512c64b0d80, type: 3}
+  - {fileID: 8300000, guid: bf43b771f1a314d408dfb97b34195c54, type: 3}
+  - {fileID: 8300000, guid: 4847834e6b2c709409475ce1e422455d, type: 3}
+  - {fileID: 8300000, guid: 0b12588ac01742046a69aab5175f8546, type: 3}
+  - {fileID: 8300000, guid: 5d1163de27c4c0345aec9143f7c94544, type: 3}
+  - {fileID: 8300000, guid: 095265bf1e08de84d955b39c66bce7b2, type: 3}
+  - {fileID: 8300000, guid: 9557547c18b488446bd08de09af60f25, type: 3}
+  - {fileID: 8300000, guid: 0eb81e98958d5584893926c6926183b2, type: 3}
+  - {fileID: 8300000, guid: cf1fd5148a5781d49b9b5b16dd27b208, type: 3}
+  - {fileID: 8300000, guid: 4775b48ed74b655448072cdc76f958c3, type: 3}
+  - {fileID: 8300000, guid: 50a42f1fee036e845bec99d7ae18623d, type: 3}
+  - {fileID: 8300000, guid: 9eecc39242f89a24d8566850c8c5eee5, type: 3}
+  - {fileID: 8300000, guid: e54f328aa463ad449a2af8122e62ed0f, type: 3}
+  clownHits:
+  - {fileID: 8300000, guid: 112b0a5e84084e945b3d02d90e5bdf1f, type: 3}
+  - {fileID: 8300000, guid: be0f2d68829a6d74aab37d4fa5542db4, type: 3}
+  - {fileID: 8300000, guid: 1f0b263a2f919ad42aed9afd6031c99e, type: 3}
+  - {fileID: 8300000, guid: e0d643babad71ca4e9000a23de902592, type: 3}
+  - {fileID: 8300000, guid: 2fd21e7275982e74bab84e717046cdb2, type: 3}
+  - {fileID: 8300000, guid: c5e36ceba01e52e4b844342119551cfb, type: 3}
+  - {fileID: 8300000, guid: e8f17392af0927b4ea43c77196e487ad, type: 3}
+  - {fileID: 8300000, guid: 4afb471f6deefcb48986f221f2c4268e, type: 3}
+  - {fileID: 8300000, guid: 7dffd18dfe7c3e649a2572c711960f97, type: 3}
+  - {fileID: 8300000, guid: 630b3c5ef15a7f345be7e6f13ad1e8ec, type: 3}
+  - {fileID: 8300000, guid: c13ddf2a98d33ba42a80a8024f49c6e4, type: 3}
+  - {fileID: 8300000, guid: 1bac575ec8af5d84b99ff12fd3186c29, type: 3}
+  - {fileID: 8300000, guid: aaec6e06f028118428e73f2c1b090960, type: 3}
+  - {fileID: 8300000, guid: 3d567480be4a34347a7fbc06782ff122, type: 3}
+  - {fileID: 8300000, guid: df3e73c893e6d29439c0d3008adb106a, type: 3}
+--- !u!82 &-1680310525970334962
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4153751071488141878}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4166779512733099687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,7 +1964,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7157549907971382223}
+        m_TargetAssemblyTypeName: ClownSoundController, Assembly-CSharp
+        m_MethodName: playGrabSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -2092,7 +2319,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7157549907971382223}
+        m_TargetAssemblyTypeName: ClownSoundController, Assembly-CSharp
+        m_MethodName: playGrabSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -2404,7 +2643,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7157549907971382223}
+        m_TargetAssemblyTypeName: ClownSoundController, Assembly-CSharp
+        m_MethodName: playGrabSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -3011,7 +3262,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7157549907971382223}
+        m_TargetAssemblyTypeName: ClownSoundController, Assembly-CSharp
+        m_MethodName: playGrabSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -3216,6 +3479,7 @@ GameObject:
   - component: {fileID: 5305200729111831343}
   - component: {fileID: 7701958272453800596}
   - component: {fileID: 5731488123488323345}
+  - component: {fileID: 1515905680871709127}
   m_Layer: 0
   m_Name: mixamorig:Head
   m_TagString: Untagged
@@ -3333,6 +3597,166 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1515905680871709127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7128194561802464749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders: []
+  m_InteractionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_InteractionLayers:
+    m_Bits: 1
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 0
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7157549907971382223}
+        m_TargetAssemblyTypeName: ClownSoundController, Assembly-CSharp
+        m_MethodName: playGrabSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_OnFirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnLastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnSelectCanceled:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnActivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_OnDeactivate:
+    m_PersistentCalls:
+      m_Calls: []
+  m_AttachTransform: {fileID: 0}
+  m_SecondaryAttachTransform: {fileID: 0}
+  m_UseDynamicAttach: 1
+  m_MatchAttachPosition: 1
+  m_MatchAttachRotation: 1
+  m_SnapToColliderVolume: 1
+  m_ReinitializeDynamicAttachEverySingleGrab: 1
+  m_AttachEaseInTime: 0.15
+  m_MovementType: 1
+  m_VelocityDamping: 1
+  m_VelocityScale: 1
+  m_AngularVelocityDamping: 1
+  m_AngularVelocityScale: 1
+  m_TrackPosition: 1
+  m_SmoothPosition: 1
+  m_SmoothPositionAmount: 5
+  m_TightenPosition: 0.5
+  m_TrackRotation: 1
+  m_SmoothRotation: 1
+  m_SmoothRotationAmount: 5
+  m_TightenRotation: 0.5
+  m_ThrowOnDetach: 1
+  m_ThrowSmoothingDuration: 0.25
+  m_ThrowSmoothingCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_ThrowVelocityScale: 1.5
+  m_ThrowAngularVelocityScale: 1
+  m_ForceGravityOnDetach: 0
+  m_RetainTransformParent: 1
+  m_AttachPointCompatibilityMode: 0
+  m_StartingSingleGrabTransformers: []
+  m_StartingMultipleGrabTransformers: []
+  m_AddDefaultGrabTransformers: 1
 --- !u!1 &7579461975053457821
 GameObject:
   m_ObjectHideFlags: 0
@@ -3949,7 +4373,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7157549907971382223}
+        m_TargetAssemblyTypeName: ClownSoundController, Assembly-CSharp
+        m_MethodName: playGrabSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -4334,7 +4770,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7157549907971382223}
+        m_TargetAssemblyTypeName: ClownSoundController, Assembly-CSharp
+        m_MethodName: playGrabSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -4700,7 +5148,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7157549907971382223}
+        m_TargetAssemblyTypeName: ClownSoundController, Assembly-CSharp
+        m_MethodName: playGrabSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []

@@ -8,12 +8,9 @@ using UnityEngine.Rendering;
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
-    public GameObject PCGUI;
-    public CameraController cam;
 
     /*-- Timer Variables --*/
     public TMP_Text timeOutput;
-    public TMP_Text timerOutput;
 
     public float maxTime;
     private float timer;
@@ -49,22 +46,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TestClownController.instance.CurrentClown != null)
-        {
-            Debug.Log("CLOWNFIRED!");
-            timer -= Time.deltaTime;
-            PCGUI.SetActive(false);
-            cam.setTrackingClown(true);
-        }
-        else
-        {
-            PCGUI.SetActive(true);
-            cam.setTrackingClown(false);
-        }
+        timer -= Time.deltaTime;
 
         float timeLeft = maxTime + timer;
 
-        //timerOutput.text = "" + (int)timeLeft;
         timeOutput.text = "Timer: " + (int)timeLeft;
 
         scoreOutput.text = "Score: " + score;
@@ -129,4 +114,22 @@ public class GameController : MonoBehaviour
                 break;
         }
     }
+
+    public void SpawnClown(string clownType)
+    {
+        switch (clownType)
+        {
+            case "Rocket Clown":
+                rocketSpawner.GetComponent<ClownRackController>().SpawnClown();
+                break;
+            case "Bomb Clown":
+                bombSpawner.GetComponent<ClownRackController>().SpawnClown();
+                break;
+            case "Normal Clown":
+            default:
+                normalSpawner.GetComponent<ClownRackController>().SpawnClown();
+                break;
+        }
+    }
+
 }

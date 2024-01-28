@@ -78,6 +78,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+
+    }
+
     public void SpawnNormalClown()
     {
         normalSpawner.GetComponent<ClownRackController>().SpawnClown();

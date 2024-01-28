@@ -53,7 +53,7 @@ public class ClownSoundController : MonoBehaviour
     private int randomTrack()
     {
         int random = Random.Range(0, 3);
-        return random + audioID;
+        return random + (3 * audioID);
     }
 
     private float randomLaughTime()

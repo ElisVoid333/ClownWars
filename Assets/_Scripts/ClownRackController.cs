@@ -21,6 +21,8 @@ public class ClownRackController : MonoBehaviour
 
     public void SpawnClown()
     {
-        Instantiate(clownSpawnPrefab, spawnPoint.position, Quaternion.identity);
+        GameObject newClown = Instantiate(clownSpawnPrefab, spawnPoint.position, Quaternion.identity);
+
+        newClown.GetComponent<ClownSoundController>().audioID = Random.Range(0, 5);
     }
 }

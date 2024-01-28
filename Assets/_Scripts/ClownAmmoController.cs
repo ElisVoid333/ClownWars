@@ -12,7 +12,7 @@ public class ClownAmmoController : MonoBehaviour
     {
         if (other.tag == "Load")
         {
-            TestClownController.instance.loadAmmo(clownName, audioID);
+            TestClownController.instance.loadAmmo(clownName, GetComponent<ClownSoundController>().audioID);
             if (clownName == "Normal Clown") GameController.instance.SpawnNormalClown();
             if (clownName == "Rocket Clown") GameController.instance.SpawnRocketClown();
             Destroy(clownRoot);

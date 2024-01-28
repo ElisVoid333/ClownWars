@@ -102,14 +102,14 @@ public class TestClownController : MonoBehaviour
             switch (nextClown.ClownType)
             {
                 case "Rocket Clown":
-                    CurrentClown = Instantiate(RocketClownPrefab, LaunchTarget.transform);
+                    CurrentClown = Instantiate(RocketClownPrefab, LaunchTarget.transform.position, Quaternion.identity);
                     break;
                 case "Bomb Clown":
-                    CurrentClown = Instantiate(BombClownPrefab, LaunchTarget.transform);
+                    CurrentClown = Instantiate(BombClownPrefab, LaunchTarget.transform.position, Quaternion.identity);
                     break;
                 case "Normal Clown":
                 default:
-                    CurrentClown = Instantiate(NormalClownPrefab, LaunchTarget.transform);
+                    CurrentClown = Instantiate(NormalClownPrefab, LaunchTarget.transform.position, Quaternion.identity);
                     break;
             }
 

@@ -11,6 +11,6 @@ public class ClownAmmoController : MonoBehaviour
     {
         TestClownController.instance.loadAmmo(clownName, audioID);
         if (clownName == "Normal Clown") GameController.instance.SpawnNormalClown();
-        if(other.tag == "Load") Destroy(this.gameObject);
+        if (other.tag == "Load") Destroy(this.gameObject);
     }
 }

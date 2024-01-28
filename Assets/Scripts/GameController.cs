@@ -73,7 +73,7 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(2);
         }
 
-        timerOutput.text = "" + (int)timeLeft;
+        //timerOutput.text = "" + (int)timeLeft;
         timeOutput.text = "Timer: " + (int)timeLeft;
 
         scoreOutput.text = "Score: " + score;

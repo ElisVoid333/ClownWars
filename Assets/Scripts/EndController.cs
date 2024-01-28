@@ -27,7 +27,7 @@ public class EndController : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene(0);
-        GameController.instance.destroyThis();
+        Destroy(GameController.instance.gameObject);
     }
     public void GoToMain()
     {

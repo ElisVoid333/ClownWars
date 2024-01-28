@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class ClownStandinController : MonoBehaviour
 {
+    public GameObject clownRoot;
     public string clownName = "";
 
     public bool exploding = false;
@@ -31,25 +32,7 @@ public class ClownStandinController : MonoBehaviour
     {
         if(done && GetComponent<Rigidbody>().velocity.magnitude <= killVelocity)
         {
-            if (clownName == "Normal Clown")
-            {
-                StartCoroutine(KillClown());
-                Debug.Log("Kill Clown!");
-            }
-
-            if (clownName == "Rocket Clown")
-            {
-                StartCoroutine(KillRocketClown());
-                Debug.Log("Kill Clown!");
-            }
-
-            if (clownName == "Bomb Clown")
-            {
-                StartCoroutine(KillBombClown());
-            }
-
-            //StartCoroutine(KillClown());
-            //Debug.Log("Kill Clown!");
+            StartCoroutine(KillClown());
         }
     }
 
@@ -61,6 +44,8 @@ public class ClownStandinController : MonoBehaviour
 
             if (gameObject.tag == "Castle" || gameObject.tag == "Ground")
             {
+                if(!done) clownRoot.GetComponent<ClownSoundController>().playSlideSound();
+
                 if (!exploding)
                 {
                     done = true;
@@ -77,48 +62,14 @@ public class ClownStandinController : MonoBehaviour
     {
         if (other.tag == "PlayArea")
         {
-            //TestClownController.instance.SpawnClown();
-            if (clownName == "Normal Clown")
-            {
-                GameObject clownShell = this.transform.parent.gameObject;
-                Destroy(clownShell);
-            }
-
-            if (clownName == "Rocket Clown")
-            {
-                GameObject clownShell = this.transform.parent.gameObject;
-                clownShell = clownShell.transform.parent.gameObject;
-                Destroy(clownShell);
-            }
+            Destroy(clownRoot);
         }
     }
 
     IEnumerator KillClown()
     {
         yield return new WaitForSeconds(killTime);
-        //TestClownController.instance.SpawnClown();
-        GameObject clownShell = this.transform.parent.gameObject;
-        Destroy(clownShell);
-        Debug.Log("Kill Normal Clown!");
-    }
-
-    IEnumerator KillRocketClown()
-    {
-        yield return new WaitForSeconds(killTime);
-        //TestClownController.instance.SpawnClown();
-        GameObject clownShell = this.transform.parent.gameObject;
-        clownShell = clownShell.transform.parent.gameObject;
-        Destroy(clownShell);
-        Debug.Log("Kill Rocket Clown!");
-    }
-
-    IEnumerator KillBombClown()
-    {
-        yield return new WaitForSeconds(killTime);
-        //TestClownController.instance.SpawnClown();
-        GameObject clownShell = this.transform.parent.gameObject;
-        Destroy(clownShell);
-        Debug.Log("Kill Bomb Clown!");
+        Destroy(clownRoot);
     }
 
     IEnumerator ExplodeClown()

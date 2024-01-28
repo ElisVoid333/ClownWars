@@ -22,17 +22,30 @@ public class CastlePartController : MonoBehaviour
     public bool isHit = false;
     public bool couldExplode = false;
     public int score = 0;
+    public GameObject particleSystem;
 
+    private bool done = false;
+    private bool destroying = false;
     private Rigidbody body;
     public float groundTimer = 0.0f;
+
+
+    public AudioClip[] poofClips;
+    private AudioSource castlePartAudio;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody>();
+        castlePartAudio = GetComponent<AudioSource>();  
     }
 
     private void Update()
     {
+        if (done && !destroying) {
+            destroying = true;
+            StartCoroutine(DestroyPiece());        
+        }
+
         if (GetComponent<Rigidbody>().IsSleeping())
         {
             GetComponent<Rigidbody>().WakeUp();
@@ -49,7 +62,8 @@ public class CastlePartController : MonoBehaviour
 
         if (other.tag == "PlayArea")
         {
-            DestroyPiece();
+            done = true;
+            StartCoroutine(DestroyPiece());
         }
 
         if (other.tag == "Explosion")
@@ -90,7 +104,7 @@ public class CastlePartController : MonoBehaviour
 
             if(groundTimer >= killTime)
             {
-                DestroyPiece();
+                done = true;
             }
         }
     }
@@ -100,10 +114,12 @@ public class CastlePartController : MonoBehaviour
         couldExplode = false;
     }
 
-    private void DestroyPiece()
+    IEnumerator DestroyPiece()
     {
-        // Spawn score effect
+        Instantiate(particleSystem, this.transform.position, Quaternion.identity);
+        castlePartAudio.PlayOneShot(poofClips[Random.Range(0, 3)]);
         GameController.instance.incremeantScore(score);
+        while(castlePartAudio.isPlaying) yield return null;
         Destroy(this.gameObject);
     }
 }

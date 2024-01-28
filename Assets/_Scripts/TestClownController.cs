@@ -63,9 +63,7 @@ public class TestClownController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Thrust Values Initialized
-        maxThrustForce = 5000f;
-        minThrustForce = 50f;
+
     }
 
     // Update is called once per frame
@@ -116,7 +114,7 @@ public class TestClownController : MonoBehaviour
             CurrentClown.GetComponent<ClownSoundController>().audioID = nextClown.ClownAudioTag;
 
             ammoLoaded.RemoveAt(0);
-            //Debug.Log("Thrust: " + thrustForce);
+
             GameObject clownCore = null;
 
             foreach (Transform child in CurrentClown.transform)

@@ -31,7 +31,25 @@ public class ClownStandinController : MonoBehaviour
     {
         if(done && GetComponent<Rigidbody>().velocity.magnitude <= killVelocity)
         {
-            StartCoroutine(KillClown());
+            if (clownName == "Normal Clown")
+            {
+                StartCoroutine(KillClown());
+                Debug.Log("Kill Clown!");
+            }
+
+            if (clownName == "Rocket Clown")
+            {
+                StartCoroutine(KillRocketClown());
+                Debug.Log("Kill Clown!");
+            }
+
+            if (clownName == "Bomb Clown")
+            {
+                StartCoroutine(KillBombClown());
+            }
+
+            //StartCoroutine(KillClown());
+            //Debug.Log("Kill Clown!");
         }
     }
 
@@ -79,18 +97,28 @@ public class ClownStandinController : MonoBehaviour
     {
         yield return new WaitForSeconds(killTime);
         //TestClownController.instance.SpawnClown();
-        if (clownName == "Normal Clown")
-        {
-            GameObject clownShell = this.transform.parent.gameObject;
-            Destroy(clownShell);
-        }
+        GameObject clownShell = this.transform.parent.gameObject;
+        Destroy(clownShell);
+        Debug.Log("Kill Normal Clown!");
+    }
 
-        if (clownName == "Rocket Clown")
-        {
-            GameObject clownShell = this.transform.parent.gameObject;
-            clownShell = clownShell.transform.parent.gameObject;
-            Destroy(clownShell);
-        }
+    IEnumerator KillRocketClown()
+    {
+        yield return new WaitForSeconds(killTime);
+        //TestClownController.instance.SpawnClown();
+        GameObject clownShell = this.transform.parent.gameObject;
+        clownShell = clownShell.transform.parent.gameObject;
+        Destroy(clownShell);
+        Debug.Log("Kill Rocket Clown!");
+    }
+
+    IEnumerator KillBombClown()
+    {
+        yield return new WaitForSeconds(killTime);
+        //TestClownController.instance.SpawnClown();
+        GameObject clownShell = this.transform.parent.gameObject;
+        Destroy(clownShell);
+        Debug.Log("Kill Bomb Clown!");
     }
 
     IEnumerator ExplodeClown()

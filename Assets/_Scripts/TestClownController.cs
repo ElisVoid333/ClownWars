@@ -141,13 +141,13 @@ public class TestClownController : MonoBehaviour
                 }
             }
 
-            Debug.Log("Core: " + clownCore.name);
+            //Debug.Log("Core: " + clownCore.name);
             Debug.Log("Force: " + thrustForce);
 
             Vector3 direction = LaunchTarget.transform.position - this.transform.position;
             direction = Vector3.Normalize(direction);
             direction *= thrustForce;
-            Debug.Log("Direction: " + direction);
+            //Debug.Log("Direction: " + direction);
 
             clownCore.GetComponent<Rigidbody>().AddForce(direction, ForceMode.Impulse);
             clownCore.GetComponent<ClownStandinController>().launched = true;
@@ -177,7 +177,7 @@ public class TestClownController : MonoBehaviour
     //Allow to add power to cannon shot
     public void addThrust(bool _addThrust)
     {
-        Debug.Log("Thrusting");
+        //Debug.Log("Thrusting");
         addingThrustingPower = _addThrust;
     }
 }

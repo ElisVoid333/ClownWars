@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 697051599406920239}
   m_Layer: 0
   m_Name: metarig.005
-  m_TagString: Untagged
+  m_TagString: Clown
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5858,6 +5858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b67fc9e06af6914c8241ad2954a34df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clownRoot: {fileID: 0}
   clownName: Rocket Clown
   audioID: 0
 --- !u!114 &6445906993268366352

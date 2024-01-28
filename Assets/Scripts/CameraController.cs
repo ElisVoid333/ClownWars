@@ -53,24 +53,24 @@ public class CameraController : MonoBehaviour
     {
         GameObject target = TestClownController.instance.CurrentClown;
 
-        target = findChild(target.transform);
+        //target = findChild(target.transform);
 
         Debug.Log(target);
         transform.position = new Vector3(target.transform.position.x, transform.position.y, transform.position.z);
     }
-    
+    /*
     private GameObject findChild(Transform parent)
     {
         GameObject child = null;
 
         foreach(Transform transform in parent.transform) {
-            if(transform.CompareTag(tag)) {
+            if(transform.CompareTag("Clown")) {
                 child = transform.gameObject;
                 break;
             }
         }
         return child;
-    }
+    }*/
 
     public void setTrackingClown(bool yayOrNay)
     {

@@ -1791,9 +1791,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NormalClownPrefab: {fileID: 2675068717207067153, guid: 007f205f3961e5447bd02d53e961f5c5, type: 3}
   RocketClownPrefab: {fileID: 8480499922150042371, guid: ba6aba0dad5bc0f4d97b62b3dee3af82, type: 3}
-  BombClownPrefab: {fileID: 1590690686053709338, guid: e1e51386fa4158848b08d46434347821, type: 3}
+  BombClownPrefab: {fileID: 4153751071488141878, guid: ae6e9846a37ac3240bf01bc5ee6dd9e6, type: 3}
   LaunchTarget: {fileID: 2087519250}
-  particleSystem: {fileID: 0}
+  particleSystem: {fileID: 4213803931737138809, guid: 012d220a6da710c4a81aa29a662b895b, type: 3}
   CurrentClown: {fileID: 0}
   thrustForce: 50
   maxThrustForce: 5000

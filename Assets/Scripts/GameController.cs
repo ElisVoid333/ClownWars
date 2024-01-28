@@ -136,6 +136,7 @@ public class GameController : MonoBehaviour
             case "Normal Clown":
             default:
                 normalSpawner.GetComponent<ClownRackController>().ClownLoaded();
+                normalSpawner.GetComponent<ClownRackController>().SpawnClown();
                 break;
         }
     }

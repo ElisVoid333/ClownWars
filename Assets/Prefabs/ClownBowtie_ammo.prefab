@@ -1699,7 +1699,6 @@ GameObject:
   - component: {fileID: 3338311364192190635}
   - component: {fileID: 4282034027446365053}
   - component: {fileID: 2159960801950686608}
-  - component: {fileID: 7950698722665397288}
   m_Layer: 0
   m_Name: ClownBowtie_ammo
   m_TagString: Untagged
@@ -1981,6 +1980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b67fc9e06af6914c8241ad2954a34df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clownRoot: {fileID: 2675068717207067153}
   clownName: Normal Clown
   audioID: 0
 --- !u!114 &1140988355286816627

@@ -3255,6 +3255,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 971075615}
     - target: {fileID: 1831533655904197253, guid: 87497000db2bc684cbfb34a2f8455d6e, type: 3}
+      propertyPath: PCTimerOutput
+      value: 
+      objectReference: {fileID: 971075615}
+    - target: {fileID: 1831533655904197253, guid: 87497000db2bc684cbfb34a2f8455d6e, type: 3}
       propertyPath: normalSpawner
       value: 
       objectReference: {fileID: 1370026420}

@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
 
     /*-- Timer Variables --*/
     public TMP_Text timeOutput;
+    public TMP_Text PCTimerOutput;
 
     public float maxTime;
     private float timer;
@@ -73,7 +74,7 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene(2);
         }
 
-        //timerOutput.text = "" + (int)timeLeft;
+        PCTimerOutput.text = "" + (int)timeLeft;
         timeOutput.text = "Timer: " + (int)timeLeft;
 
         scoreOutput.text = "Score: " + score;

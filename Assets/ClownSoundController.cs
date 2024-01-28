@@ -13,7 +13,7 @@ public class ClownSoundController : MonoBehaviour
     public AudioClip[] clownShots;
     public AudioClip[] clownHits;
 
-    private AudioSource audioSource;
+    private AudioSource clownSoundSource;
 
     private float laughTime = 0.0f;
     private float lastLaugh = 0.0f;
@@ -23,7 +23,7 @@ public class ClownSoundController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.audioSource = GetComponent<AudioSource>();
+        clownSoundSource = GetComponent<AudioSource>();
         laughTime = randomLaughTime();
     }
 
@@ -32,9 +32,9 @@ public class ClownSoundController : MonoBehaviour
     {
         if(Time.time - lastLaugh >= laughTime)
         {
-            if (!audioSource.isPlaying)
+            if (!clownSoundSource.isPlaying)
             {
-                audioSource.PlayOneShot(clownLaughs[randomTrack()]);
+                clownSoundSource.PlayOneShot(clownLaughs[randomTrack()]);
             }
 
             lastLaugh = Time.time;
@@ -45,17 +45,17 @@ public class ClownSoundController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Funnel") { 
-            if (audioSource.isPlaying) audioSource.Stop();
+            if (clownSoundSource.isPlaying) clownSoundSource.Stop();
 
-            audioSource.PlayOneShot(clownSlides[randomTrack()]);
+            clownSoundSource.PlayOneShot(clownSlides[randomTrack()]);
         }
     }
 
     public void playGrabSound()
     {
-        if(audioSource.isPlaying) audioSource.Stop();
+        if(clownSoundSource.isPlaying) clownSoundSource.Stop();
 
-        audioSource.PlayOneShot(clownGrabs[randomTrack()]);
+        clownSoundSource.PlayOneShot(clownGrabs[randomTrack()]);
     }
 
     private int randomTrack()

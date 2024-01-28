@@ -1759,7 +1759,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 85828bac0724ce34c873409aecafe26d, type: 3}
   - {fileID: 8300000, guid: 4457c726669c4134893739d47eb5e2a8, type: 3}
   - {fileID: 8300000, guid: a8752cf859b19504a9967a3189d1be50, type: 3}
-  clownShots: []
+  clownShots:
+  - {fileID: 8300000, guid: a173e1aec43928846915b9fbb08a5b2e, type: 3}
+  - {fileID: 8300000, guid: 3cb76446c545f4a42b0d5c3356c92b9c, type: 3}
+  - {fileID: 8300000, guid: 6ce86d0f4a21aba4aad11512c64b0d80, type: 3}
   clownHits: []
 --- !u!82 &2159960801950686608
 AudioSource:

@@ -1661,6 +1661,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3338311364192190635}
+  - component: {fileID: 9064458790716404675}
+  - component: {fileID: 8437711462622666349}
   m_Layer: 0
   m_Name: ClownBowtie_projectile
   m_TagString: Untagged
@@ -1695,6 +1697,135 @@ Transform:
   - {fileID: 942509967463889824}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9064458790716404675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2675068717207067153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da6fefee67522c34d90d37fc45fc1236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioID: 0
+  clownLaughs:
+  - {fileID: 8300000, guid: b7e8e9b6fa2237c4b88dc3324789fa59, type: 3}
+  - {fileID: 8300000, guid: 2dcf00d400adc8c4491d1936fe781420, type: 3}
+  - {fileID: 8300000, guid: 1a42a79f11176434389c4b5935c3ce3f, type: 3}
+  clownGrabs:
+  - {fileID: 8300000, guid: 9375d30b4328b344d93c58bdcb974b40, type: 3}
+  - {fileID: 8300000, guid: f5a514b0d355bf94aba1db1927780df0, type: 3}
+  - {fileID: 8300000, guid: 6bb40fc0b77305f4eb33a6036c740a4a, type: 3}
+  clownSlides:
+  - {fileID: 8300000, guid: 85828bac0724ce34c873409aecafe26d, type: 3}
+  - {fileID: 8300000, guid: 4457c726669c4134893739d47eb5e2a8, type: 3}
+  - {fileID: 8300000, guid: a8752cf859b19504a9967a3189d1be50, type: 3}
+  clownShots:
+  - {fileID: 8300000, guid: a173e1aec43928846915b9fbb08a5b2e, type: 3}
+  - {fileID: 8300000, guid: 3cb76446c545f4a42b0d5c3356c92b9c, type: 3}
+  - {fileID: 8300000, guid: 6ce86d0f4a21aba4aad11512c64b0d80, type: 3}
+  clownHits:
+  - {fileID: 8300000, guid: 112b0a5e84084e945b3d02d90e5bdf1f, type: 3}
+  - {fileID: 8300000, guid: be0f2d68829a6d74aab37d4fa5542db4, type: 3}
+  - {fileID: 8300000, guid: 1f0b263a2f919ad42aed9afd6031c99e, type: 3}
+--- !u!82 &8437711462622666349
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2675068717207067153}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2800018091063572810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,6 +1924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53e9e0bdb539f9747a0adbd219f59089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clownRoot: {fileID: 2675068717207067153}
   clownName: Normal Clown
   exploding: 0
   launched: 0

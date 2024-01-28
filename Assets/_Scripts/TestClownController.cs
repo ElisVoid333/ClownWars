@@ -153,6 +153,8 @@ public class TestClownController : MonoBehaviour
             clownCore.GetComponent<ClownStandinController>().launched = true;
             thrustForce = minThrustForce;   //Resets force applied to objects when shot
 
+            CurrentClown.GetComponent<ClownSoundController>().playShotSound();
+
             StartCoroutine(ResetCastle());
         }
     }

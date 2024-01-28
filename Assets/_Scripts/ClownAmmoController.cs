@@ -17,11 +17,13 @@ public class ClownAmmoController : MonoBehaviour
             if (clownName == "Rocket Clown") GameController.instance.SpawnRocketClown();
             Destroy(clownRoot);
         }
+    }
 
-        if(other.tag == "Funnel")
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Funnel")
         {
             clownRoot.GetComponent<ClownSoundController>().playSlideSound();
         }
-        
     }
 }

@@ -15,6 +15,7 @@ public class ClownSoundController : MonoBehaviour
 
     private AudioSource clownSoundSource;
 
+    private float randomInteval = 3.0f;
     private float laughTime = 0.0f;
     private float lastLaugh = 0.0f;
 
@@ -52,15 +53,14 @@ public class ClownSoundController : MonoBehaviour
     private int randomTrack()
     {
         int random = Random.Range(0, 3);
-        Debug.Log(random);
         return random + audioID;
     }
 
     private float randomLaughTime()
     {
-        int random = Random.Range(1, 5);
+        int random = Random.Range(2, 5);
 
-        return 1.5f * random;
+        return randomInteval * random;
     }
 
     public void playShotSound()
@@ -75,5 +75,12 @@ public class ClownSoundController : MonoBehaviour
         if (clownSoundSource.isPlaying) clownSoundSource.Stop();
 
         clownSoundSource.PlayOneShot(clownSlides[randomTrack()]);
+    }
+
+    public void playHitSound()
+    {
+        if (clownSoundSource.isPlaying) clownSoundSource.Stop();
+
+        clownSoundSource.PlayOneShot(clownHits[randomTrack()]);
     }
 }

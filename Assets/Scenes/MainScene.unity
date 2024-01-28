@@ -352,6 +352,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2256493161380816080, guid: f729d8e34639a564592e11978812889e, type: 3}
   m_PrefabInstance: {fileID: 775255312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &443603183
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2675068717207067153, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_Name
+      value: ClownBowtie_ammo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338311364192190635, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338311364192190635, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338311364192190635, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3.884
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338311364192190635, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338311364192190635, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338311364192190635, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338311364192190635, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338311364192190635, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338311364192190635, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338311364192190635, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
 --- !u!4 &539869789 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5768936585494723264, guid: 841b9a5d8ed7cc14fa490e11d3df105d, type: 3}
@@ -380,10 +437,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Clown Rack - Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 7552334351633484757, guid: 053fb0291f28fc547acf11a6720d2d10, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8456701480747312585, guid: 053fb0291f28fc547acf11a6720d2d10, type: 3}
       propertyPath: clownSpawnPrefab
       value: 
-      objectReference: {fileID: 1590690686053709338, guid: 82877b2a93e58af4785ac3f0a3d85e1b, type: 3}
+      objectReference: {fileID: 8480499922150042371, guid: 18281a5b86fe8d446ae0b75811951afd, type: 3}
     - target: {fileID: 8985106867163923690, guid: 053fb0291f28fc547acf11a6720d2d10, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.8446932
@@ -494,7 +555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd10687c5f62a047960d14ba2beeb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NormalClownPrefab: {fileID: 1590690686053709338, guid: ca6d9c940c8c40e48913dbb52559d95c, type: 3}
+  NormalClownPrefab: {fileID: 2675068717207067153, guid: 007f205f3961e5447bd02d53e961f5c5, type: 3}
   RocketClownPrefab: {fileID: 8480499922150042371, guid: ba6aba0dad5bc0f4d97b62b3dee3af82, type: 3}
   BombClownPrefab: {fileID: 1590690686053709338, guid: e1e51386fa4158848b08d46434347821, type: 3}
   LaunchTarget: {fileID: 2087519250}
@@ -827,34 +888,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1478611889181988853, guid: e008149232a07674795ebbc17a89f161, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565435381640022611, guid: e008149232a07674795ebbc17a89f161, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 3565435381640022611, guid: e008149232a07674795ebbc17a89f161, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 5501428663752110212, guid: e008149232a07674795ebbc17a89f161, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5501428663752110212, guid: e008149232a07674795ebbc17a89f161, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 6511448903746514208, guid: e008149232a07674795ebbc17a89f161, type: 3}
-      propertyPath: m_Name
-      value: CanonTest
-      objectReference: {fileID: 0}
-    - target: {fileID: 6699225262518076146, guid: e008149232a07674795ebbc17a89f161, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 005062c0af7a72d498d818f56a1346be, type: 2}
     - target: {fileID: 1020064387947749504, guid: 905c4f56821efb14b96a51dbf5a8266d, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.45
@@ -891,6 +924,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1478611889181988853, guid: e008149232a07674795ebbc17a89f161, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565435381640022611, guid: e008149232a07674795ebbc17a89f161, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 3565435381640022611, guid: e008149232a07674795ebbc17a89f161, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501428663752110212, guid: e008149232a07674795ebbc17a89f161, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5501428663752110212, guid: e008149232a07674795ebbc17a89f161, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511448903746514208, guid: e008149232a07674795ebbc17a89f161, type: 3}
+      propertyPath: m_Name
+      value: CanonTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 6699225262518076146, guid: e008149232a07674795ebbc17a89f161, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 005062c0af7a72d498d818f56a1346be, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1276,7 +1337,7 @@ PrefabInstance:
     - target: {fileID: 8456701480747312585, guid: 053fb0291f28fc547acf11a6720d2d10, type: 3}
       propertyPath: clownSpawnPrefab
       value: 
-      objectReference: {fileID: 8480499922150042371, guid: 18281a5b86fe8d446ae0b75811951afd, type: 3}
+      objectReference: {fileID: 2675068717207067153, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
     - target: {fileID: 8985106867163923690, guid: 053fb0291f28fc547acf11a6720d2d10, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.5646935
@@ -1380,6 +1441,10 @@ PrefabInstance:
     - target: {fileID: 1888381003101010290, guid: 053fb0291f28fc547acf11a6720d2d10, type: 3}
       propertyPath: m_Name
       value: Clown Rack - Bomb
+      objectReference: {fileID: 0}
+    - target: {fileID: 7552334351633484757, guid: 053fb0291f28fc547acf11a6720d2d10, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8456701480747312585, guid: 053fb0291f28fc547acf11a6720d2d10, type: 3}
       propertyPath: clownSpawnPrefab
@@ -5091,3 +5156,4 @@ SceneRoots:
   - {fileID: 1028791595}
   - {fileID: 815396997}
   - {fileID: 6506514558809889208}
+  - {fileID: 443603183}

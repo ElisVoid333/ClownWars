@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.A)) rocketSpawner.GetComponent<ClownRackController>().SpawnClown();
         if(Input.GetKeyDown(KeyCode.S)) bombSpawner.GetComponent<ClownRackController>().SpawnClown();
-        if (Input.GetKeyDown(KeyCode.W)) normalSpawner.GetComponent<ClownRackController>().SpawnClown();
+        if(Input.GetKeyDown(KeyCode.W)) normalSpawner.GetComponent<ClownRackController>().SpawnClown();
     }
 
     public void incremeantScore(int scoreAdd)
@@ -92,8 +92,26 @@ public class GameController : MonoBehaviour
     {
         rocketSpawner.GetComponent<ClownRackController>().SpawnClown();
     }
+
     public void SpawnBombClown()
     {
         bombSpawner.GetComponent<ClownRackController>().SpawnClown();
+    }
+
+    public void LoadClown(string clownType)
+    {
+        switch (clownType)
+        {
+            case "Rocket Clown":
+                rocketSpawner.GetComponent<ClownRackController>().ClownLoaded();
+                break;
+            case "Bomb Clown":
+                bombSpawner.GetComponent<ClownRackController>().ClownLoaded();
+                break;
+            case "Normal Clown":
+            default:
+                normalSpawner.GetComponent<ClownRackController>().ClownLoaded();
+                break;
+        }
     }
 }

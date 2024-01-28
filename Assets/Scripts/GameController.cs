@@ -4,10 +4,14 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
     public static GameController instance;
+
+    public GameObject PCGUI;
+    public CameraController cam;
 
     /*-- Timer Variables --*/
     public TMP_Text timeOutput;
@@ -17,7 +21,7 @@ public class GameController : MonoBehaviour
 
     // Score Variables
     public TMP_Text scoreOutput;
-    private int score = 0;
+    public int score = 0;
     public int rocketClownScore = 1500;
     public int bombClownScore = 4000;
     private int nextRocket = 1;
@@ -41,15 +45,35 @@ public class GameController : MonoBehaviour
         timer = 0f;
 
         score = 0;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
+        if (TestClownController.instance.CurrentClown != null)
+        {
+            Debug.Log("CLOWNFIRED!");
+            PCGUI.SetActive(false);
+            cam.setTrackingClown(true);
+        }
+        else
+        {
+            timer -= Time.deltaTime;
+            PCGUI.SetActive(true);
+            cam.setTrackingClown(false);
+        }
 
         float timeLeft = maxTime + timer;
+        Debug.Log(timeLeft);
 
+        if (timeLeft <= 0f)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            SceneManager.LoadScene(2);
+        }
+
+        timerOutput.text = "" + (int)timeLeft;
         timeOutput.text = "Timer: " + (int)timeLeft;
 
         scoreOutput.text = "Score: " + score;

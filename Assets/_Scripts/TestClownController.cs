@@ -72,7 +72,7 @@ public class TestClownController : MonoBehaviour
         /*-- Firing Canon --*/
         if (addingThrustingPower)
         {
-            thrustForce += 1f;
+            thrustForce += 5f;
 
             if (thrustForce >= maxThrustForce)
             {

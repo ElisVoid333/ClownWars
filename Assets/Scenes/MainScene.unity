@@ -1795,9 +1795,9 @@ MonoBehaviour:
   LaunchTarget: {fileID: 2087519250}
   particleSystem: {fileID: 4213803931737138809, guid: 012d220a6da710c4a81aa29a662b895b, type: 3}
   CurrentClown: {fileID: 0}
-  thrustForce: 50
-  maxThrustForce: 5000
-  minThrustForce: 50
+  thrustForce: 75
+  maxThrustForce: 3000
+  minThrustForce: 75
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

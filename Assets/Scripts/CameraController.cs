@@ -54,8 +54,6 @@ public class CameraController : MonoBehaviour
         GameObject target = TestClownController.instance.CurrentClown;
 
         target = findChild(target.transform);
-
-        Debug.Log(target);
         transform.position = new Vector3(target.transform.position.x, transform.position.y, transform.position.z);
     }
     

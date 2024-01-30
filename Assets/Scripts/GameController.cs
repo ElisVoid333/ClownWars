@@ -64,7 +64,6 @@ public class GameController : MonoBehaviour
         }
 
         float timeLeft = maxTime + timer;
-        Debug.Log(timeLeft);
 
         if (timeLeft <= 0f)
         {

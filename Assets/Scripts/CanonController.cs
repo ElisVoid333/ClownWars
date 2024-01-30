@@ -14,13 +14,18 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanonController : MonoBehaviour
 {
+    public Scrollbar scrollbar;
+
     /*-- Instances --*/
     public GameObject clown;
+    public GameObject barrel;
 
     /*-- Rotation of Canon Variables --*/
     public float rotationSpeed;                                         //How fast barrel will rotate along z-axis
@@ -28,8 +33,8 @@ public class CanonController : MonoBehaviour
     private bool rotateCanonUpwards;                                    //Allow rotation upwards
     private bool rotateCanonDownwards;                                  //Allow rotation downwards
 
-    private float maxRotation = 43.5f;                                  //Restrict rotation upwards     (Max Value barrel may rotate)
-    private float minRotation = 300f;                                   //Restrict rotation downwards    (Min Value barrel may rotate)
+    private float maxRotation = -10.0f;                                  //Restrict rotation upwards     (Max Value barrel may rotate)
+    private float minRotation = -85.0f;                                   //Restrict rotation downwards    (Min Value barrel may rotate)
 
 
     /*-- Firing Canon Variables --*/
@@ -60,7 +65,20 @@ public class CanonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*-- Rotation of Canon --*/
+        float newAngle = minRotation + ((maxRotation - minRotation) * scrollbar.value);
+
+        Quaternion toAngle = Quaternion.Euler(0.0f, 0.0f, newAngle);
+
+        barrel.transform.rotation = Quaternion.Lerp(barrel.transform.rotation, toAngle, Time.deltaTime / rotationSpeed);
+
+        //Vector3 toAngle = new Vector3(0.0f, 0.0f, newAngle);
+
+        //transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, toAngle, Time.deltaTime);
+
+        //transform.eulerAngles = toAngle;
+
+
+        /*-- Rotation of Canon
         //Debug.Log(transform.eulerAngles.z);
 
         // Rotates Canon Upwards if button held down
@@ -84,7 +102,7 @@ public class CanonController : MonoBehaviour
         {
             transform.eulerAngles = new Vector3(0f, 0f, minRotation);
         }
-
+ 
         /*-- Firing Canon --*/
         //if (addingThrustingPower)
         //{

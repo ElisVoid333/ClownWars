@@ -18,6 +18,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
+using UnityEngine.UI;
 
 
 public struct Ammo
@@ -35,6 +36,8 @@ public struct Ammo
 public class TestClownController : MonoBehaviour
 {
     public static TestClownController instance = null;
+
+    public Scrollbar canonPower;
 
     public GameObject NormalClownPrefab;
     public GameObject RocketClownPrefab;
@@ -69,21 +72,11 @@ public class TestClownController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*-- Firing Canon --*/
-        if (addingThrustingPower)
-        {
-            thrustForce += 5f;
-
-            if (thrustForce >= maxThrustForce)
-            {
-                thrustForce = maxThrustForce;
-            }
-            //Debug.Log(thrustForce);
-        }
 
         if (Input.GetKeyDown(KeyCode.Space) && spaceUp)
         {
             spaceUp = false;
+            loadAmmo("Normal Clown", 0);
             LaunchClown();
         }
 
@@ -141,7 +134,8 @@ public class TestClownController : MonoBehaviour
                 }
             }
 
-            //Debug.Log("Core: " + clownCore.name);
+            thrustForce = minThrustForce + ((maxThrustForce - minThrustForce) * canonPower.value);
+
             Debug.Log("Force: " + thrustForce);
 
             Vector3 direction = LaunchTarget.transform.position - this.transform.position;

@@ -23,8 +23,8 @@ public class GameController : MonoBehaviour
     // Score Variables
     public TMP_Text scoreOutput;
     private int score = 0;
-    private int rocketClownScore = 1500;
-    private int bombClownScore = 4000;
+    public int rocketClownScore = 10000;
+    public int bombClownScore = 4000;
     private int nextRocket = 1;
     private int nextBomb = 1;
 
@@ -71,9 +71,9 @@ public class GameController : MonoBehaviour
         }
 
         PCTimerOutput.text = "" + (int)timeLeft;
-        timeOutput.text = "Timer: " + (int)timeLeft;
+        timeOutput.text = "Timer<br>" + (int)timeLeft;
 
-        scoreOutput.text = "Score: " + score;
+        scoreOutput.text = "Score<br>" + score;
 
         if(Input.GetKeyDown(KeyCode.A)) rocketSpawner.GetComponent<ClownRackController>().SpawnClown();
         if(Input.GetKeyDown(KeyCode.S)) bombSpawner.GetComponent<ClownRackController>().SpawnClown();

@@ -10,16 +10,21 @@ public class ClownStandinController : MonoBehaviour
     public GameObject clownRoot;
     public string clownName = "";
     public GameObject particleSystem;
+    public GameObject rocketParticle;
     public bool exploding = false;
+    public bool rocketing = false;
     public bool launched = false;
     public float killVelocity = 0.1f;
     public float killTime = 3.0f;
     private bool done = false;
     private bool exploded = false;
+    private bool rocketed = false;
 
     public float explosionForce = 15.0f;
     public float explosionRadius = 3.0f;
     public float upwardsModifier = 1.0f;
+
+    public float rocketMax = 2000.00f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +38,12 @@ public class ClownStandinController : MonoBehaviour
         if(done && GetComponent<Rigidbody>().velocity.magnitude <= killVelocity)
         {
             StartCoroutine(KillClown());
+        }
+
+        if(rocketing && !rocketed)
+        {
+            rocketed = true;
+            StartCoroutine(RocketClown());
         }
     }
 
@@ -90,5 +101,13 @@ public class ClownStandinController : MonoBehaviour
         exploded = true;
 
         yield return null;
+    }
+
+    IEnumerator RocketClown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        rocketParticle.SetActive(true);
+        Vector3 direction = Vector3.right * rocketMax;
+        GetComponent<Rigidbody>().AddForce(direction, ForceMode.Impulse);
     }
 }

@@ -76,7 +76,7 @@ public class TestClownController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && spaceUp)
         {
             spaceUp = false;
-            loadAmmo("Normal Clown", 0);
+            loadAmmo("Bomb Clown", 0);
             LaunchClown();
         }
 

@@ -2165,7 +2165,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -2383,9 +2383,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2159960801950686608, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_Volume
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2675068717207067153, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
       propertyPath: m_Name
       value: ClownBowtie_ammo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2675068717207067153, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3338311364192190635, guid: dbb20bc8619cda740a97f20b010a30d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2991,7 +2999,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: e62c48d391769e84fa163e6c52c2388f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3276,7 +3284,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448893008}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1448893010
 Camera:
   m_ObjectHideFlags: 0

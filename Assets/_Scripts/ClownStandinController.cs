@@ -37,7 +37,14 @@ public class ClownStandinController : MonoBehaviour
     {
         if(done && GetComponent<Rigidbody>().velocity.magnitude <= killVelocity)
         {
-            StartCoroutine(KillClown());
+            if (!exploding)
+            {
+                StartCoroutine(KillClown());
+            }
+            else
+            {
+                if (!exploded) StartCoroutine(ExplodeClown());
+            }
         }
 
         if(rocketing && !rocketed)
@@ -55,16 +62,9 @@ public class ClownStandinController : MonoBehaviour
 
             if (gameObject.tag == "Castle" || gameObject.tag == "Ground")
             {
-                if(!done) clownRoot.GetComponent<ClownSoundController>().playSlideSound();
+                if(!done) clownRoot.GetComponent<ClownSoundController>().playHitSound();
 
-                if (!exploding)
-                {
-                    done = true;
-                } else
-                {
-                    if(!exploded) StartCoroutine(ExplodeClown());
-                }
-
+                done = true;
             }
         }
     }
@@ -97,10 +97,10 @@ public class ClownStandinController : MonoBehaviour
         Instantiate(particleSystem, this.transform.position, Quaternion.identity);
         
         // Activate Particle Effect
-        done = true;
         exploded = true;
 
         yield return null;
+        StartCoroutine(KillClown());
     }
 
     IEnumerator RocketClown()

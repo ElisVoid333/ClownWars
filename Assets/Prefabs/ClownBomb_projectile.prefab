@@ -1139,6 +1139,7 @@ Transform:
   - {fileID: 1435567790523325989}
   - {fileID: 1073363520410590710}
   - {fileID: 6793496531538807449}
+  - {fileID: 5418181220551189262}
   m_Father: {fileID: 5720560492164572463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4406218195032086096
@@ -1364,13 +1365,16 @@ MonoBehaviour:
   clownRoot: {fileID: 4153751071488141878}
   clownName: Bomb Clown
   particleSystem: {fileID: 5453934617546059795, guid: 1ccf1d3ddef8d3c4880263c9104758ec, type: 3}
+  rocketParticle: {fileID: 0}
   exploding: 1
+  rocketing: 0
   launched: 0
   killVelocity: 0.1
   killTime: 3
-  explosionForce: 15
-  explosionRadius: 3
+  explosionForce: 1500
+  explosionRadius: 5
   upwardsModifier: 1
+  rocketMax: 2000
 --- !u!1 &3235088647343371141
 GameObject:
   m_ObjectHideFlags: 0
@@ -4434,6 +4438,59 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.006090164, y: 0.4269473, z: 0.019047081}
     m_Extent: {x: 1.0905185, y: 0.49420494, z: 0.19091648}
   m_DirtyAABB: 0
+--- !u!1 &8425599351265263141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5418181220551189262}
+  - component: {fileID: 1991297268644030100}
+  m_Layer: 0
+  m_Name: Explosion
+  m_TagString: Explosion
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5418181220551189262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425599351265263141}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5678193699718544852}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1991297268644030100
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8425599351265263141}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8483534897327871211
 GameObject:
   m_ObjectHideFlags: 0
